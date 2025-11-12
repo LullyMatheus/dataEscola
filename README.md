@@ -11,6 +11,6 @@ Esse é um projeto da disciplina de Desenvolvimento de Sistemas, criado pelos al
  - Angular: frontend;
  - GitHub: controle de versões.
 
-**Professor:** Odilon Correa 
-**Disciplina:** Desenvolvimento de Sistemas
+**Professor:** Odilon Correa  
+**Disciplina:** Desenvolvimento de Sistemas  
 **Instituição:** CEFET-MG- Campus Timóteo
