@@ -3,7 +3,7 @@ Sistema de gestão de atividades acadêmicas
 
 ## Sobre o Projeto
 
-Esse é um projeto da disciplina de Desenvolvimento de Sistemas, criado pelos alunos Matheus Mechetti e Gabrielle Coimbra, estudantes de Engenharia de Computação do CEFET-MG. 
+Esse é um projeto da disciplina de Desenvolvimento de Sistemas, criado pelos alunos Matheus Mechetti Lulli e Gabrielle Coimbra Batista, estudantes de Engenharia de Computação do CEFET-MG. 
 
  ### Tecnologias
 
