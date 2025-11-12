@@ -13,4 +13,4 @@ Esse é um projeto da disciplina de Desenvolvimento de Sistemas, criado pelos al
 
 **Professor:** Odilon Correa  
 **Disciplina:** Desenvolvimento de Sistemas  
-**Instituição:** CEFET-MG- Campus Timóteo
+**Instituição:** CEFET-MG - campus Timóteo
