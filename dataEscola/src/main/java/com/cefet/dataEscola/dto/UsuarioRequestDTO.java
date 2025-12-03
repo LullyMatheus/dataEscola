@@ -54,5 +54,4 @@ public class UsuarioRequestDTO {
         return tipoUsuario;
     }  
     
-
 }
