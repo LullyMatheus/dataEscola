@@ -1,6 +1,6 @@
 package com.cefet.dataEscola.entities;
-import com.cefet.dataEscola.Enums.TipoUsuario;
 
+import com.cefet.dataEscola.Enums.TipoUsuario;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -35,6 +35,7 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
     private TipoUsuario tipo;
+
 
     public Usuario() {}
 
@@ -94,4 +95,5 @@ public class Usuario {
     public void setTipo(TipoUsuario tipo) {
         this.tipo = tipo;
     }
+
 }
