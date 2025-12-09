@@ -1,4 +1,4 @@
-package com.cefet.dataEscola;
+package com.cefet.dataEscola.services;
 
 import java.util.List;
 import java.util.Optional;

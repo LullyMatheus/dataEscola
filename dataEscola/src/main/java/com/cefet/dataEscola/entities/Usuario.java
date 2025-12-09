@@ -36,7 +36,6 @@ public class Usuario {
     @Column(nullable = false, length = 30)
     private TipoUsuario tipo;
 
-
     public Usuario() {}
 
         public Usuario(Long id, String nome, String cpf, String senha, String email, TipoUsuario tipo) {
