@@ -30,7 +30,7 @@ public class AlunoService {
     }
 
     //Excluir por ID
-    public void delete(Aluno aluno){
-        alunoRepository.delete(aluno);
+    public void delete(Long id){
+        alunoRepository.deleteById(id);
     }
 }
