@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.cefet.dataEscola.entities.Aluno;
-import com.cefet.dataEscola.services.AlunoService;
+import com.cefet.dataEscola.entities.Atendimento;
+import com.cefet.dataEscola.services.AtendimentoService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,44 +16,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-@RequestMapping("/api/alunos")
+@RequestMapping("/api/atendimento")
 
-public class AlunoController {
+public class AtendimentoController {
 
     @Autowired
-    private AlunoService alunoService;
+    private AtendimentoService atendimentoService;
 
     @GetMapping
-    public ResponseEntity<List<Aluno>> findAll(){
-        List<Aluno> alunos = alunoService.findAll();
-        return ResponseEntity.ok(alunos);
+    public ResponseEntity<List<Atendimento>> findAll(){
+        List<Atendimento> atendimento = atendimentoService.findAll();
+        return ResponseEntity.ok(atendimento);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Aluno>> findById(@PathVariable Long id){
-        Optional<Aluno> aluno = alunoService.findById(id);
-        return ResponseEntity.ok(aluno);         
+    public ResponseEntity<Optional<Atendimento>> findById(@PathVariable Long id){
+        Optional<Atendimento> atendimento = atendimentoService.findById(id);
+        return ResponseEntity.ok(atendimento);         
     } 
 
     @PostMapping
-    public ResponseEntity<Aluno> create(@RequestBody Aluno aluno){
-        Aluno objeto = alunoService.save(aluno);
+    public ResponseEntity<Atendimento> create(@RequestBody Atendimento atendimento){
+        Atendimento objeto = atendimentoService.save(atendimento);
         return ResponseEntity.status(201).body(objeto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Aluno> update(@PathVariable Long id, @RequestBody Aluno aluno){
-        if(!id.equals(aluno.getId())){
+    public ResponseEntity<Atendimento> update(@PathVariable Long id, @RequestBody Atendimento atendimento){
+        if(!id.equals(atendimento.getId())){
             return ResponseEntity.badRequest().build();
         }
 
-        Aluno atualizado = alunoService.save(aluno);
+        Atendimento atualizado = atendimentoService.save(atendimento);
         return ResponseEntity.ok(atualizado);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        alunoService.delete(id);
+        atendimentoService.delete(id);
         return ResponseEntity.noContent().build();
     }
     
