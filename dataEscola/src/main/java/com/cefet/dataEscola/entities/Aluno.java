@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -36,5 +37,9 @@ public class Aluno {
     @Column(name = "contato")
     private List<String> contatos;    
     
+    //Acessar atividades academicas a partir de aluno
+    @OneToMany(mappedBy = "aluno")
+    private List<AtividadeAcademica> atividades;
+
     
 }
