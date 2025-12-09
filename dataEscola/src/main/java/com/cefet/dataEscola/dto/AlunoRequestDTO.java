@@ -69,7 +69,6 @@ public class AlunoRequestDTO {
         this.atividades = atividades;
     }
 
-    
-    
+       
     
 }
