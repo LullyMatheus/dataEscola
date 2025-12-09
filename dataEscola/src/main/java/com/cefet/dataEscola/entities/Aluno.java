@@ -41,5 +41,50 @@ public class Aluno {
     @OneToMany(mappedBy = "aluno")
     private List<AtividadeAcademica> atividades;
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<String> getContatos() {
+        return contatos;
+    }
+
+    public void setContatos(List<String> contatos) {
+        this.contatos = contatos;
+    }
+
+    public List<AtividadeAcademica> getAtividades() {
+        return atividades;
+    }
+
+    public void setAtividades(List<AtividadeAcademica> atividades) {
+        this.atividades = atividades;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    
     
 }
