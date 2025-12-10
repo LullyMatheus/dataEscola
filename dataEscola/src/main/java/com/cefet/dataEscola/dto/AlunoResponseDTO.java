@@ -1,7 +1,6 @@
 package com.cefet.dataEscola.dto;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import com.cefet.dataEscola.entities.Aluno;
 
@@ -17,7 +16,7 @@ public class AlunoResponseDTO {
 
     private String email;
 
-    private List<String> contatos;
+    private String contatos;
 
     
     public AlunoResponseDTO(){
@@ -65,12 +64,18 @@ public class AlunoResponseDTO {
         this.email = email;
     }
 
-    public List<String> getContatos() {
+    public String getContatos() {
         return contatos;
     }
 
-    public void setContatos(List<String> contatos) {
+    public void setContatos(String contatos) {
         this.contatos = contatos;
+    }
+
+    public String getMatricula() {
+        return matricula;
     }    
+
+    
     
 }

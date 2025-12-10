@@ -19,7 +19,6 @@ public class AlunoRequestDTO {
     @Size(max=11, message = "A matricula não pode ter mais de 11 caracteres")
     private String matricula;
 
-    @NotBlank(message = "O campo 'dataNascimento' é obrigatório.")
     private LocalDate dataNascimento;
 
     @NotBlank(message = "O campo 'email' é obrigatório.")
@@ -27,9 +26,7 @@ public class AlunoRequestDTO {
     @Email(message = "O formato do e-mail é inválido")
     private String email;
 
-    private List<String> contatos;
-
-    private List<Atividade> atividades;
+    private String contatos;
 
     public Long getId() {
         return id;
@@ -67,20 +64,12 @@ public class AlunoRequestDTO {
         this.email = email;
     }
 
-    public List<String> getContatos() {
+    public String getContatos() {
         return contatos;
     }
 
-    public void setContatos(List<String> contatos) {
+    public void setContatos(String contatos) {
         this.contatos = contatos;
-    }
-
-    public List<Atividade> getAtividades() {
-        return atividades;
-    }
-
-    public void setAtividades(List<Atividade> atividades) {
-        this.atividades = atividades;
     }
 
     public AlunoRequestDTO(){
@@ -91,12 +80,11 @@ public class AlunoRequestDTO {
             @NotBlank(message = "O campo 'nome' é obrigatório.") @Size(max = 200, message = "O nome não pode ter mais de 200 caracteres") String nome,
             @NotBlank(message = "O campo 'dataNascimento' é obrigatório.") LocalDate dataNascimento,
             @NotBlank(message = "O campo 'email' é obrigatório.") @Size(max = 200, message = "O email não pode ter mais de 200 caracteres") @Email(message = "O formato do e-mail é inválido") String email,
-            List<String> contatos, List<Atividade> atividades) {
+            String contatos) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.email = email;
         this.contatos = contatos;
-        this.atividades = atividades;
     }
 
     

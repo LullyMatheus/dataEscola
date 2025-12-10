@@ -34,14 +34,14 @@ public class Aluno {
     @Column(nullable = false, length = 200)
     private String email;
 
-    @ElementCollection
-    @CollectionTable(name = "aluno_contatos", joinColumns = @JoinColumn(name = "aluno_id"))
     @Column(name = "contato")
-    private List<String> contatos;    
+    private String contatos;    
     
     //Acessar atividades academicas a partir de aluno
     @OneToMany(mappedBy = "aluno")
     private List<Atividade> atividades;
+
+
 
     public String getNome() {
         return nome;
@@ -67,11 +67,11 @@ public class Aluno {
         this.email = email;
     }
 
-    public List<String> getContatos() {
+    public String getContatos() {
         return contatos;
     }
 
-    public void setContatos(List<String> contatos) {
+    public void setContatos(String contatos) {
         this.contatos = contatos;
     }
 
@@ -94,6 +94,12 @@ public class Aluno {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    
 
     
     

@@ -39,9 +39,16 @@ public class AlunoService {
     	}else {
     		aluno = alunoRepository.findById(alunoRequestDTO.getId())
     			.orElseThrow(() -> new EntityNotFoundException("Aluno não localizado com ID: " + alunoRequestDTO.getId()));
-    	}
+    	
+            }
 		
+        
     	aluno.setNome(alunoRequestDTO.getNome());
+        aluno.setMatricula(alunoRequestDTO.getMatricula());
+        aluno.setDataNascimento(alunoRequestDTO.getDataNascimento());
+        aluno.setContatos(alunoRequestDTO.getContatos());
+        aluno.setEmail(alunoRequestDTO.getEmail());
+        aluno.setId(alunoRequestDTO.getId());
     	
     	Aluno alunoSalvo = alunoRepository.save(aluno);
         return new AlunoResponseDTO(alunoSalvo);
