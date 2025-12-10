@@ -1,6 +1,6 @@
 package com.cefet.dataEscola.entities;
 
-import com.cefet.dataEscola.Enums.SituacaoAtividadeAcademica;
+import com.cefet.dataEscola.Enums.StatusAtividade;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_atividadeAcademica")
-public class AtividadeAcademica {
+public class Atividade {
     //id, descricao, observacao, situacao, id_aluno(fk), id_usuario(fk)
 
     @Id
@@ -29,23 +29,23 @@ public class AtividadeAcademica {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
-    private SituacaoAtividadeAcademica situacaoAtividade;    
+    private StatusAtividade statusAtividade;    
 
     //Uma atividade acadêmica é referente a um aluno, um aluno possui várias atividades academicas
     @ManyToOne 
     @JoinColumn(name = "id_aluno", nullable = false)
     private Aluno aluno;
 
-    public AtividadeAcademica(Long id, String descricao, String observacao,
-        SituacaoAtividadeAcademica situacaoAtividade, Aluno aluno) {
+    public Atividade(Long id, String descricao, String observacao,
+        StatusAtividade statusAtividade, Aluno aluno) {
         this.id = id;
         this.descricao = descricao;
         this.observacao = observacao;
-        this.situacaoAtividade = situacaoAtividade;
+        this.statusAtividade = statusAtividade;
         this.aluno = aluno;
     }
 
-    public AtividadeAcademica() {
+    public Atividade() {
     }
 
     public Long getId() {
@@ -72,12 +72,12 @@ public class AtividadeAcademica {
         this.observacao = observacao;
     }
 
-    public SituacaoAtividadeAcademica getSituacaoAtividade() {
-        return situacaoAtividade;
+    public StatusAtividade getStatusAtividade() {
+        return statusAtividade;
     }
 
-    public void setSituacaoAtividade(SituacaoAtividadeAcademica situacaoAtividade) {
-        this.situacaoAtividade = situacaoAtividade;
+    public void setStatusAtividade(StatusAtividade statusAtividade) {
+        this.statusAtividade = statusAtividade;
     }
 
     public Aluno getAluno() {

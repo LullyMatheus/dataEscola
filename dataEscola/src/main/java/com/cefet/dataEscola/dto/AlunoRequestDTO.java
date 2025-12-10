@@ -3,7 +3,7 @@ package com.cefet.dataEscola.dto;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.cefet.dataEscola.entities.AtividadeAcademica;
+import com.cefet.dataEscola.entities.Atividade;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -27,7 +27,7 @@ public class AlunoRequestDTO {
 
     private List<String> contatos;
 
-    private List<AtividadeAcademica> atividades;
+    private List<Atividade> atividades;
 
     public String getNome() {
         return nome;
@@ -61,11 +61,11 @@ public class AlunoRequestDTO {
         this.contatos = contatos;
     }
 
-    public List<AtividadeAcademica> getAtividades() {
+    public List<Atividade> getAtividades() {
         return atividades;
     }
 
-    public void setAtividades(List<AtividadeAcademica> atividades) {
+    public void setAtividades(List<Atividade> atividades) {
         this.atividades = atividades;
     }
 

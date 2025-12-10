@@ -1,6 +1,6 @@
 package com.cefet.dataEscola.Enums;
 
-public enum SituacaoAtividadeAcademica {
+public enum StatusAtividade {
     ATIVO,
     CONCLUIDO
 

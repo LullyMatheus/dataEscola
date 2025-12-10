@@ -39,7 +39,7 @@ public class Aluno {
     
     //Acessar atividades academicas a partir de aluno
     @OneToMany(mappedBy = "aluno")
-    private List<AtividadeAcademica> atividades;
+    private List<Atividade> atividades;
 
     public String getNome() {
         return nome;
@@ -73,11 +73,11 @@ public class Aluno {
         this.contatos = contatos;
     }
 
-    public List<AtividadeAcademica> getAtividades() {
+    public List<Atividade> getAtividades() {
         return atividades;
     }
 
-    public void setAtividades(List<AtividadeAcademica> atividades) {
+    public void setAtividades(List<Atividade> atividades) {
         this.atividades = atividades;
     }
 
