@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.cefet.dataEscola.entities.Aluno;
+import com.cefet.dataEscola.dto.AlunoResponseDTO;
+import com.cefet.dataEscola.dto.AlunoRequestDTO;
 import com.cefet.dataEscola.services.AlunoService;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,31 +27,42 @@ public class AlunoController {
     private AlunoService alunoService;
 
     @GetMapping
-    public ResponseEntity<List<Aluno>> findAll(){
-        List<Aluno> alunos = alunoService.findAll();
-        return ResponseEntity.ok(alunos);
+    public ResponseEntity<List<AlunoResponseDTO>> findAll(){
+        List<AlunoResponseDTO> alunosResponseDTO = alunoService.findAll();
+        return ResponseEntity.ok(alunosResponseDTO);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Aluno>> findById(@PathVariable Long id){
-        Optional<Aluno> aluno = alunoService.findById(id);
-        return ResponseEntity.ok(aluno);         
+    public ResponseEntity<Optional<AlunoResponseDTO>> findById(@PathVariable Long id){
+        Optional<AlunoResponseDTO> alunoResponseDTO = alunoService.findById(id);
+        return ResponseEntity.ok(alunoResponseDTO);         
     } 
 
     @PostMapping
-    public ResponseEntity<Aluno> create(@RequestBody Aluno aluno){
-        Aluno objeto = alunoService.save(aluno);
-        return ResponseEntity.status(201).body(objeto);
+    public ResponseEntity<AlunoResponseDTO> create(@Valid @RequestBody AlunoRequestDTO alunoRequestDTO){
+        AlunoResponseDTO alunoResponseDTO = alunoService.save(alunoRequestDTO);
+        return ResponseEntity.status(201).body(alunoResponseDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Aluno> update(@PathVariable Long id, @RequestBody Aluno aluno){
-        if(!id.equals(aluno.getId())){
-            return ResponseEntity.badRequest().build();
+    public ResponseEntity<AlunoResponseDTO> update(@PathVariable Long id,@Valid @RequestBody AlunoRequestDTO alunoRequestDTO){
+        // Lança exceção se o ID estiver ausente
+        if (alunoRequestDTO.getId() == null) {
+            throw new IllegalArgumentException("O campo 'id' é obrigatório para atualização.");
         }
 
-        Aluno atualizado = alunoService.save(aluno);
-        return ResponseEntity.ok(atualizado);
+        // Lança exceção se o ID do path for diferente do ID do DTO
+        if (!id.equals(alunoRequestDTO.getId())) {
+            throw new IllegalArgumentException("O ID informado na URL é diferente do ID do corpo da requisição.");
+        }
+        
+        // Lança exceção se o ID não existir
+        if (!alunoService.existsById(id)) {
+            throw new EntityNotFoundException("Aluno com ID " + id + " não localizado.");
+        }           
+       
+        AlunoResponseDTO alunoResponseDTO = alunoService.save(alunoRequestDTO);
+        return ResponseEntity.ok(alunoResponseDTO);
     }
 
     @DeleteMapping("/{id}")
