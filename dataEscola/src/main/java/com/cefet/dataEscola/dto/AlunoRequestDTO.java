@@ -2,9 +2,7 @@ package com.cefet.dataEscola.dto;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import com.cefet.dataEscola.entities.Atividade;
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -29,6 +27,10 @@ public class AlunoRequestDTO {
 
     private List<Atividade> atividades;
 
+    public Long getId() {
+        return id;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -69,6 +71,25 @@ public class AlunoRequestDTO {
         this.atividades = atividades;
     }
 
+    public AlunoRequestDTO(){
+
+    }
+
+    public AlunoRequestDTO(
+            @NotBlank(message = "O campo 'nome' é obrigatório.") @Size(max = 200, message = "O nome não pode ter mais de 200 caracteres") String nome,
+            @NotBlank(message = "O campo 'dataNascimento' é obrigatório.") LocalDate dataNascimento,
+            @NotBlank(message = "O campo 'email' é obrigatório.") @Size(max = 200, message = "O email não pode ter mais de 200 caracteres") @Email(message = "O formato do e-mail é inválido") String email,
+            List<String> contatos, List<Atividade> atividades) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.email = email;
+        this.contatos = contatos;
+        this.atividades = atividades;
+    }
+
+    
+
+    
        
     
 }
