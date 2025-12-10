@@ -23,6 +23,9 @@ public class Aluno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 11)
+    private String matricula;
+
     @Column(nullable = false, length = 200)
     private String nome;
 
@@ -83,6 +86,14 @@ public class Aluno {
 
     public Long getId() {
         return id;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     
