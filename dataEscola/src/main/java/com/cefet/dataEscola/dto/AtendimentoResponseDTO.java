@@ -4,41 +4,33 @@ import java.time.LocalDate;
 import com.cefet.dataEscola.Enums.SituacaoAtendimento;
 import com.cefet.dataEscola.entities.Aluno;
 import com.cefet.dataEscola.entities.Usuario;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
-public class AtendimentoRequestDTO {
+public class AtendimentoResponseDTO {
 
     private Long id;
 
-    @Size(max=500, message = "A descrição não pode ter mais de 500 caracteres")
     private String descricao;
 
-    @NotBlank(message = "O campo 'dataAtendimento' é obrigatório.")
     private LocalDate dataAtendimento;
 
     private LocalDate dataLembrete;
 
-    @NotBlank(message = "O campo 'situação' é obrigatório.")
     private SituacaoAtendimento situacao;
-    
-    @NotBlank(message = "O campo 'aluno' é obrigatório.")
+
     private Aluno aluno;
-    
-    @NotBlank(message = "O campo 'usuário' é obrigatório.")
+
     private Usuario usuario;
 
-    public AtendimentoRequestDTO(){
-        //Contrutor Vazio
+    
+    public AtendimentoResponseDTO(){
+        //construtor vazio, eh util em alguns casos
     }
 
-    public AtendimentoRequestDTO(
-            @Size(max = 500, message = "A descrição não pode ter mais de 500 caracteres") String descricao,
-            @NotBlank(message = "O campo 'dataAtendimento' é obrigatório.") LocalDate dataAtendimento,
-            LocalDate dataLembrete,
-            @NotBlank(message = "O campo 'situação' é obrigatório.") SituacaoAtendimento situacao,
-            @NotBlank(message = "O campo 'aluno' é obrigatório.") Aluno aluno,
-            @NotBlank(message = "O campo 'usuário' é obrigatório.") Usuario usuario) {
+    //Construtor utilitario
+    //Isso serve para converter a entidade atendimento (com todos os seus stributos) em um DTO
+    //que possui apenas os atributos que queremos
+    public AtendimentoResponseDTO(String descricao, LocalDate dataAtendimento, LocalDate dataLembrete,
+            SituacaoAtendimento situacao, Aluno aluno, Usuario usuario) {
         this.descricao = descricao;
         this.dataAtendimento = dataAtendimento;
         this.dataLembrete = dataLembrete;
@@ -98,6 +90,5 @@ public class AtendimentoRequestDTO {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
     
 }
