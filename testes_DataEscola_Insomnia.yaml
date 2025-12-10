@@ -1,0 +1,180 @@
+type: collection.insomnia.rest/5.0
+name: ProjetoFinal
+meta:
+  id: wrk_014a277f435c4f318c42d5770e70ae74
+  created: 1765391518072
+  modified: 1765391518072
+  description: ""
+collection:
+  - url: ""
+    name: New Request
+    meta:
+      id: req_ab7d81a5c13841b28419bfb5319d6718
+      created: 1765391529269
+      modified: 1765391529269
+      isPrivate: false
+      description: ""
+      sortKey: -1765391529269
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - name: Aluno
+    meta:
+      id: fld_d5d3529fdefc408fa3e4898004de4e7c
+      created: 1759706716472
+      modified: 1765393549457
+      sortKey: -1758076959042
+      description: ""
+    children:
+      - url: http://localhost:8888/api/alunos
+        name: Listar todos
+        meta:
+          id: req_b31ee824bf0c4dc1ac6e5b1fbfe1c44f
+          created: 1759706716474
+          modified: 1765391551878
+          isPrivate: false
+          description: ""
+          sortKey: -1758076982481
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/2023.5.8
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/alunos/1
+        name: Buscar por ID
+        meta:
+          id: req_043685c07edf4967bf98081ba7be467a
+          created: 1759706716478
+          modified: 1765391600351
+          isPrivate: false
+          description: ""
+          sortKey: -1758074169116.25
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/2023.5.8
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/alunos/2
+        name: Remover por ID
+        meta:
+          id: req_113215a6570d4085a2001072962515d7
+          created: 1759706716481
+          modified: 1765393345993
+          isPrivate: false
+          description: ""
+          sortKey: -1758060102292.5
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/2023.5.8
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/alunos
+        name: "Cadastrar "
+        meta:
+          id: req_c51cabba7fa241a68c9b48e202351b1e
+          created: 1759706716485
+          modified: 1765392703654
+          isPrivate: false
+          description: ""
+          sortKey: -1758071355751.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Lisa Simpson",
+            	"matricula": "20230000001",
+            	"dataNascimento": "2002-05-09",
+            	"email": "lisa.simpson@email.com0",
+            	"contatos": "Mãe: 2233-4545"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/2023.5.8
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/alunos/2
+        name: Atualizar
+        meta:
+          id: req_b4387061e8654998babc298b43707c26
+          created: 1759706716488
+          modified: 1765393222404
+          isPrivate: false
+          description: ""
+          sortKey: -1758068542386.75
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"nome": "Lisa Simpson",
+            	"matricula": "20230000001",
+            	"dataNascimento": "2002-05-09",
+            	"email": "lisa.simpson@email.com0",
+            	"contatos": "Mãe: 2233-4545"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/2023.5.8
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_66dd0c01714b4f2c944705008b4be033
+    created: 1759706716463
+    modified: 1759706716463
+environments:
+  name: Base Environment
+  meta:
+    id: env_66fd2c95ce6e497084e4aaf486a43419
+    created: 1759706716459
+    modified: 1759706716459
+    isPrivate: false
