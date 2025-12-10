@@ -46,6 +46,10 @@ public class Atendimento {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    public Atendimento(){
+        
+    }
+
     public Atendimento(LocalDate dataAtendimento, LocalDate dataLembrete, SituacaoAtendimento situacao, Aluno aluno) {
         this.dataAtendimento = dataAtendimento;
         this.dataLembrete = dataLembrete;

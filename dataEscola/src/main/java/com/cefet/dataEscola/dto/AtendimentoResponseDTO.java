@@ -3,6 +3,7 @@ package com.cefet.dataEscola.dto;
 import java.time.LocalDate;
 import com.cefet.dataEscola.Enums.SituacaoAtendimento;
 import com.cefet.dataEscola.entities.Aluno;
+import com.cefet.dataEscola.entities.Atendimento;
 import com.cefet.dataEscola.entities.Usuario;
 
 public class AtendimentoResponseDTO {
@@ -29,14 +30,14 @@ public class AtendimentoResponseDTO {
     //Construtor utilitario
     //Isso serve para converter a entidade atendimento (com todos os seus stributos) em um DTO
     //que possui apenas os atributos que queremos
-    public AtendimentoResponseDTO(String descricao, LocalDate dataAtendimento, LocalDate dataLembrete,
-            SituacaoAtendimento situacao, Aluno aluno, Usuario usuario) {
-        this.descricao = descricao;
-        this.dataAtendimento = dataAtendimento;
-        this.dataLembrete = dataLembrete;
-        this.situacao = situacao;
-        this.aluno = aluno;
-        this.usuario = usuario;
+    public AtendimentoResponseDTO(Atendimento atendimento){
+        this.id = atendimento.getId();
+        this.descricao = atendimento.getDescricao();
+        this.dataAtendimento = atendimento.getDataAtendimento();
+        this.dataLembrete = atendimento.getDataLembrete();
+        this.situacao = atendimento.getSituacao();
+        this.aluno = atendimento.getAluno();
+        this.usuario = atendimento.getUsuario();
     }
 
     public Long getId() {
