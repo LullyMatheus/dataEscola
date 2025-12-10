@@ -2,10 +2,8 @@ package com.cefet.dataEscola.services;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cefet.dataEscola.dto.UsuarioRequestDTO;
 import com.cefet.dataEscola.dto.UsuarioResponseDTO;
 import com.cefet.dataEscola.entities.Usuario;
