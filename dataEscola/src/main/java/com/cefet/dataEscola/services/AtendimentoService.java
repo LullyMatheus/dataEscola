@@ -52,4 +52,9 @@ public class AtendimentoService {
     public void delete(Long id){
         atendimentoRepository.deleteById(id);
     }
+
+    //verificar id
+	public boolean existsById(Long id) {
+	    return atendimentoRepository.existsById(id);
+	}
 }

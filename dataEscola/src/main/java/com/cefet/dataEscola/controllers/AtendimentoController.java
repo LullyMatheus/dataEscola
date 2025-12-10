@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.cefet.dataEscola.entities.Atendimento;
+import com.cefet.dataEscola.dto.AtendimentoRequestDTO;
+import com.cefet.dataEscola.dto.AtendimentoResponseDTO;
 import com.cefet.dataEscola.services.AtendimentoService;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,31 +27,42 @@ public class AtendimentoController {
     private AtendimentoService atendimentoService;
 
     @GetMapping
-    public ResponseEntity<List<Atendimento>> findAll(){
-        List<Atendimento> atendimento = atendimentoService.findAll();
-        return ResponseEntity.ok(atendimento);
+    public ResponseEntity<List<AtendimentoResponseDTO>> findAll(){
+        List<AtendimentoResponseDTO> atendimentosResponseDTO = atendimentoService.findAll();
+        return ResponseEntity.ok(atendimentosResponseDTO);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Atendimento>> findById(@PathVariable Long id){
-        Optional<Atendimento> atendimento = atendimentoService.findById(id);
-        return ResponseEntity.ok(atendimento);         
+    public ResponseEntity<Optional<AtendimentoResponseDTO>> findById(@PathVariable Long id){
+        Optional<AtendimentoResponseDTO> atendimentoResponseDTO = atendimentoService.findById(id);
+        return ResponseEntity.ok(atendimentoResponseDTO);         
     } 
 
     @PostMapping
-    public ResponseEntity<Atendimento> create(@RequestBody Atendimento atendimento){
-        Atendimento objeto = atendimentoService.save(atendimento);
-        return ResponseEntity.status(201).body(objeto);
+    public ResponseEntity<AtendimentoResponseDTO> create(@Valid @RequestBody AtendimentoRequestDTO atendimentoRequestDTO){
+        AtendimentoResponseDTO atendimentoResponseDTO = atendimentoService.save(atendimentoRequestDTO);
+        return ResponseEntity.status(201).body(atendimentoResponseDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Atendimento> update(@PathVariable Long id, @RequestBody Atendimento atendimento){
-        if(!id.equals(atendimento.getId())){
-            return ResponseEntity.badRequest().build();
+    public ResponseEntity<AtendimentoResponseDTO> update(@PathVariable Long id,@Valid @RequestBody AtendimentoRequestDTO atendimentoRequestDTO){
+        // Lança exceção se o ID estiver ausente
+        if (atendimentoRequestDTO.getId() == null) {
+            throw new IllegalArgumentException("O campo 'id' é obrigatório para atualização.");
         }
 
-        Atendimento atualizado = atendimentoService.save(atendimento);
-        return ResponseEntity.ok(atualizado);
+        // Lança exceção se o ID do path for diferente do ID do DTO
+        if (!id.equals(atendimentoRequestDTO.getId())) {
+            throw new IllegalArgumentException("O ID informado na URL é diferente do ID do corpo da requisição.");
+        }
+        
+        // Lança exceção se o ID não existir
+        if (!atendimentoService.existsById(id)) {
+            throw new EntityNotFoundException("Atendimento com ID " + id + " não localizado.");
+        }           
+       
+        AtendimentoResponseDTO atendimentoResponseDTO = atendimentoService.save(atendimentoRequestDTO);
+        return ResponseEntity.ok(atendimentoResponseDTO);
     }
 
     @DeleteMapping("/{id}")
