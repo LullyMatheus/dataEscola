@@ -1,7 +1,6 @@
 package com.cefet.dataEscola.services;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cefet.dataEscola.Enums.StatusAtividade;
@@ -13,6 +12,7 @@ import com.cefet.dataEscola.repositories.AlunoRepository;
 import com.cefet.dataEscola.repositories.AtividadeRepository;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 
 public class AtividadeService {
 
@@ -65,10 +65,7 @@ public class AtividadeService {
         // copiar atributos
         atividade.setDescricao(dto.getDescricao());
         atividade.setObservacao(dto.getObservacao());
-        atividade.setStatusAtividade(StatusAtividade.valueOf(dto.getStatus().toUpperCase())
-);
-
-
+        atividade.setStatusAtividade(StatusAtividade.valueOf(dto.getStatus().toUpperCase()));
         // vincular aluno
         Aluno aluno = alunoRepository.findById(dto.getIdAluno())
                 .orElseThrow(() -> new EntityNotFoundException("Aluno não encontrado com ID: " + dto.getIdAluno()));
@@ -77,6 +74,60 @@ public class AtividadeService {
 
         atividadeRepository.save(atividade);
 
+        return new AtividadeResponseDTO(atividade);
+    }
+
+    // ATUALIZAR
+    public AtividadeResponseDTO update(Long id, AtividadeRequestDTO dto) {
+        Atividade atividade = atividadeRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Atividade não encontrada"));
+
+        atividade.setDescricao(dto.getDescricao());
+        atividade.setObservacao(dto.getObservacao());
+        atividade.setStatusAtividade(StatusAtividade.valueOf(dto.getStatus().toUpperCase()));
+        // Verifica se mudou o aluno
+        if (!atividade.getAluno().getId().equals(dto.getIdAluno())) {
+            Aluno aluno = alunoRepository.findById(dto.getIdAluno())
+                    .orElseThrow(() -> new EntityNotFoundException("Aluno não encontrado"));
+            atividade.setAluno(aluno);
+        }
+
+        atividadeRepository.save(atividade);
+
+        return new AtividadeResponseDTO(atividade);
+    }
+
+        // BUSCAR POR ALUNO
+    public List<AtividadeResponseDTO> findByAlunoId(Long idAluno) {
+        return atividadeRepository.findByAlunoId(idAluno)
+                .stream()
+                .map(AtividadeResponseDTO::new)
+                .toList();
+    }
+
+    @Transactional
+    public AtividadeResponseDTO create(AtividadeRequestDTO dto) {
+        // validação simples (opcional)
+        if (dto.getId() != null) {
+            throw new IllegalArgumentException("Não informe ID ao criar uma nova atividade.");
+        }
+
+        // buscar o aluno (lança EntityNotFoundException se não existir)
+        Aluno aluno = alunoRepository.findById(dto.getIdAluno())
+                .orElseThrow(() -> new EntityNotFoundException(
+                    "Aluno não encontrado com ID: " + dto.getIdAluno()));
+
+        // montar a entidade
+        Atividade atividade = new Atividade();
+        atividade.setDescricao(dto.getDescricao());
+        atividade.setObservacao(dto.getObservacao());
+        atividade.setStatusAtividade(StatusAtividade.valueOf(dto.getStatus().toUpperCase()));
+        atividade.setAluno(aluno);
+
+        // salvar
+        atividade = atividadeRepository.save(atividade);
+
+        // retornar DTO de resposta
         return new AtividadeResponseDTO(atividade);
     }
 
