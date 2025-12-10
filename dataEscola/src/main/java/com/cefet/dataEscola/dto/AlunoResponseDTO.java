@@ -11,6 +11,8 @@ public class AlunoResponseDTO {
 
     private String nome;
 
+    private String matricula;
+
     private LocalDate dataNascimento;
 
     private String email;
@@ -31,6 +33,7 @@ public class AlunoResponseDTO {
         this.dataNascimento = aluno.getDataNascimento();
         this.email = aluno.getEmail();
         this.contatos = aluno.getContatos();
+        this.matricula = aluno.getMatricula();
     }
 
     public Long getId() {

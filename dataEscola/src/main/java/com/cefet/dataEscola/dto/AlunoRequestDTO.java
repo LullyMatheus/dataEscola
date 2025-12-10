@@ -15,6 +15,10 @@ public class AlunoRequestDTO {
     @Size(max=200, message = "O nome não pode ter mais de 200 caracteres")
     private String nome;
 
+    @NotBlank(message = "O campo 'matricula' é obrigatório.")
+    @Size(max=11, message = "A matricula não pode ter mais de 11 caracteres")
+    private String matricula;
+
     @NotBlank(message = "O campo 'dataNascimento' é obrigatório.")
     private LocalDate dataNascimento;
 
@@ -31,6 +35,14 @@ public class AlunoRequestDTO {
         return id;
     }
     
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
     public String getNome() {
         return nome;
     }
