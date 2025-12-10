@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DataEscolaApplication<dataEscola>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.cefet.dataEscola.DataEscolaApplication",
+            "projectName": "dataEscola",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
