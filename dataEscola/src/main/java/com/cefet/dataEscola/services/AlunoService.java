@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.cefet.dataEscola.dto.AlunoRequestDTO;
+import com.cefet.dataEscola.dto.AlunoResponseDTO;
 import com.cefet.dataEscola.entities.Aluno;
 import com.cefet.dataEscola.repositories.AlunoRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class AlunoService {
@@ -14,22 +17,46 @@ public class AlunoService {
     private AlunoRepository alunoRepository;
 
     //Buscar todos
-    public List<Aluno> findAll(){
-        return alunoRepository.findAll();        
+    public List<AlunoResponseDTO> findAll(){
+        List<Aluno> alunos = alunoRepository.findAll();
+		return alunos.stream().map(AlunoResponseDTO::new).toList();     
     }
 
     //Buscar por ID
-    public Optional<Aluno> findById(Long id) {
-        return alunoRepository.findById(id);
+    public Optional<AlunoResponseDTO> findById(Long id) {
+        Aluno aluno = alunoRepository.findById(id)
+			.orElseThrow(() -> new EntityNotFoundException("Aluno não localizado com ID: " + id));
+		
+		return Optional.of(new AlunoResponseDTO(aluno));
     }
     
     //Salvar ou atualizar
-    public Aluno save(Aluno aluno){
-        return alunoRepository.save(aluno);
+    public AlunoResponseDTO save(AlunoRequestDTO alunoRequestDTO){
+        Aluno aluno = null;
+		
+		if (alunoRequestDTO.getId() == null) {
+			aluno = new Aluno();
+    	}else {
+    		aluno = alunoRepository.findById(alunoRequestDTO.getId())
+    			.orElseThrow(() -> new EntityNotFoundException("Aluno não localizado com ID: " + alunoRequestDTO.getId()));
+    	}
+		
+    	aluno.setNome(alunoRequestDTO.getNome());
+    	
+    	Aluno alunoSalvo = alunoRepository.save(aluno);
+        return new AlunoResponseDTO(alunoSalvo);
     }
 
     //Excluir por ID
-    public void delete(Long id){
-        alunoRepository.deleteById(id);
-    }
+    public void delete(Long id) {
+        if (!alunoRepository.existsById(id)) {
+            throw new EntityNotFoundException("Aluno não localizado com ID: " + id);
+        }		
+		alunoRepository.deleteById(id);
+	}
+    
+	//verificar id
+	public boolean existsById(Long id) {
+	    return alunoRepository.existsById(id);
+	}	
 }
