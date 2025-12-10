@@ -1,5 +1,5 @@
 -- Inserindo alunos
-INSERT INTO tb_aluno (matricula, nome, dataNascimento, email, contatos) VALUES 
+INSERT INTO tb_aluno (matricula, nome, data_nascimento, email, contatos) VALUES 
 ('2023100001', 'Lisa Simpson', '2002-05-09', 'lisa.simpson@email.com', 'Mãe: 2233-4545'),
 ('2023100002', 'Harry Potter', '1980-07-31', 'harry.potter@hogwarts.com', 'Tio Válter: 9999-0001'),
 ('2023100003', 'Hermione Granger', '1979-09-19', 'mione@magic.com', 'Pais: 8888-7777'),
@@ -18,8 +18,7 @@ INSERT INTO tb_aluno (matricula, nome, dataNascimento, email, contatos) VALUES
 
 
 -- Inserindo Usuarios
--- Inserção de 15 usuários na tabela tb_usuario
--- Atributos: nome, login, senha, email, tipo (ENUM: 'PROFESSOR' ou 'SERVIDOR')
+
 INSERT INTO tb_usuario (nome, login, senha, email, tipo) VALUES
 ('Carlos Silva', 'carlos.silva', 'senha123', 'carlos.silva@escola.com.br', 'PROFESSOR'),
 ('Ana Souza', 'ana.souza', 'segredo456', 'ana.souza@admin.com.br', 'SERVIDOR'),
@@ -39,7 +38,7 @@ INSERT INTO tb_usuario (nome, login, senha, email, tipo) VALUES
 
 
 -- Inserindo atividades Academicas
-INSERT INTO tb_atividadeAcademica (descricao, observacao, statusAtividade, aluno) VALUES
+INSERT INTO tb_atividadeAcademica (descricao, observacao, status_atividade, aluno_id) VALUES
 ('Seminário de História', 'Grupo de 4 pessoas', 'CONCLUIDO', 12),
 ('Entrega de Redação', NULL, 'ATIVO', 5),
 ('Laboratório de Química', 'Trazer jaleco', 'ATIVO', 8),
@@ -56,33 +55,5 @@ INSERT INTO tb_atividadeAcademica (descricao, observacao, statusAtividade, aluno
 
 
 --Inserindo atendimentos
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-02 10:00:00', '2024-03-01 10:00:00', 'REALIZADO', 1, 5);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-05 14:30:00', '2024-03-04 14:30:00', 'AGENDADO', 12, 3);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-06 09:00:00', '2024-03-05 09:00:00', 'CANCELADO', 4, 15);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-08 11:00:00', '2024-03-07 11:00:00', 'REALIZADO', 7, 2);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-10 16:00:00', '2024-03-09 16:00:00', 'REMARCADO', 15, 8);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-12 13:00:00', '2024-03-11 13:00:00', 'AGENDADO', 3, 10);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-15 08:30:00', '2024-03-14 08:30:00', 'REALIZADO', 9, 1);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-16 15:45:00', '2024-03-15 15:45:00', 'REALIZADO', 2, 14);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-18 10:15:00', '2024-03-17 10:15:00', 'CANCELADO', 11, 4);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-20 17:00:00', '2024-03-19 17:00:00', 'AGENDADO', 6, 6);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-22 09:30:00', '2024-03-21 09:30:00', 'REMARCADO', 14, 12);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-25 14:00:00', '2024-03-24 14:00:00', 'REALIZADO', 8, 9);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-26 11:30:00', '2024-03-25 11:30:00', 'AGENDADO', 5, 7);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-03-28 16:15:00', '2024-03-27 16:15:00', 'REALIZADO', 13, 11);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-01 10:00:00', '2024-03-31 10:00:00', 'CANCELADO', 10, 13);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-03 13:45:00', '2024-04-02 13:45:00', 'AGENDADO', 1, 5);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-05 09:15:00', '2024-04-04 09:15:00', 'REALIZADO', 15, 2);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-07 15:30:00', '2024-04-06 15:30:00', 'REMARCADO', 3, 15);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-10 11:00:00', '2024-04-09 11:00:00', 'AGENDADO', 7, 8);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-12 14:20:00', '2024-04-11 14:20:00', 'REALIZADO', 12, 1);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-15 08:45:00', '2024-04-14 08:45:00', 'REALIZADO', 4, 10);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-17 16:50:00', '2024-04-16 16:50:00', 'CANCELADO', 9, 3);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-20 10:30:00', '2024-04-19 10:30:00', 'AGENDADO', 2, 14);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-22 13:15:00', '2024-04-21 13:15:00', 'REMARCADO', 11, 7);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-25 09:40:00', '2024-04-24 09:40:00', 'REALIZADO', 6, 6);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-27 15:10:00', '2024-04-26 15:10:00', 'AGENDADO', 14, 12);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-04-30 11:50:00', '2024-04-29 11:50:00', 'REALIZADO', 8, 9);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-05-02 14:00:00', '2024-05-01 14:00:00', 'CANCELADO', 5, 4);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-05-05 10:00:00', '2024-05-04 10:00:00', 'AGENDADO', 13, 11);
-INSERT INTO tb_atendimento (descricao, dataAtendimento, dataLembrete, situacao, aluno, usuario) VALUES (NULL, '2024-05-08 16:30:00', '2024-05-07 16:30:00', 'REALIZADO', 10, 13);
+INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES 
+('Exemplo de descrição', '2024-03-02', '2024-03-01', 'REALIZADO', 1, 5);
