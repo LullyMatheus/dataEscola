@@ -40,9 +40,15 @@ public class AtendimentoService {
     		atendimento = atendimentoRepository.findById(atendimentoRequestDTO.getId())
     			.orElseThrow(() -> new EntityNotFoundException("Atendimento não localizado com ID: " + atendimentoRequestDTO.getId()));
     	}
-		
+
+        //os parametros abaixo devem ser passados para a API no momento de cadastrar um novo atendimento
+        
+        atendimento.setDescricao(atendimentoRequestDTO.getDescricao());
     	atendimento.setDataAtendimento(atendimentoRequestDTO.getDataAtendimento());
+        atendimento.setDataLembrete(atendimentoRequestDTO.getDataLembrete());
+        atendimento.setSituacao(atendimentoRequestDTO.getSituacao());
         atendimento.setAluno(atendimentoRequestDTO.getAluno());
+        atendimento.setUsuario(atendimentoRequestDTO.getUsuario());
     	
     	Atendimento atendimentoSalvo = atendimentoRepository.save(atendimento);
         return new AtendimentoResponseDTO(atendimentoSalvo);

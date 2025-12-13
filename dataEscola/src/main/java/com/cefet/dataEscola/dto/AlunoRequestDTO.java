@@ -73,7 +73,6 @@ public class AlunoRequestDTO {
     }
 
     public AlunoRequestDTO(){
-
     }
 
     public AlunoRequestDTO(
@@ -86,10 +85,5 @@ public class AlunoRequestDTO {
         this.email = email;
         this.contatos = contatos;
     }
-
-    
-
-    
-       
     
 }
