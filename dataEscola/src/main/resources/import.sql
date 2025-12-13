@@ -15,3 +15,6 @@ INSERT INTO tb_atendimento (id, descricao, data_atendimento, data_lembrete, situ
 INSERT INTO tb_atendimento (id, descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES (2,'Atendimento', '2024-03-05', '2024-03-04', 'AGENDADO', 2, 3);
 INSERT INTO tb_atendimento (id, descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES (3,'Atendimento', '2024-03-06', '2024-03-05', 'CANCELADO', 4, 3);
 INSERT INTO tb_atendimento (id, descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES (4,'Atendimento', '2024-03-08', '2024-03-07', 'REALIZADO', 3, 2);
+
+--Preencher tb_atividadeAcademica
+INSERT INTO tb_atividade_academica (id, id_aluno, descricao, observacao, status_atividade) VALUES (1,1,'Debate Filosófico','Sem observações','CONCLUIDO');
