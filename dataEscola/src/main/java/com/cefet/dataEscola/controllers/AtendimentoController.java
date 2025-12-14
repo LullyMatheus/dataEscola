@@ -5,9 +5,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.cefet.dataEscola.dto.AtendimentoRequestDTO;
 import com.cefet.dataEscola.dto.AtendimentoResponseDTO;
+import com.cefet.dataEscola.entities.Atendimento;
 import com.cefet.dataEscola.services.AtendimentoService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
@@ -37,6 +39,12 @@ public class AtendimentoController {
         Optional<AtendimentoResponseDTO> atendimentoResponseDTO = atendimentoService.findById(id);
         return ResponseEntity.ok(atendimentoResponseDTO);         
     } 
+
+    @GetMapping("/por-aluno")
+    public List<Atendimento> listarPorAluno(@RequestParam String nome) {
+        //filtra os atendimentos por aluno
+        return atendimentoService.buscarPorNomeDoAluno(nome);
+    }
 
     @PostMapping
     public ResponseEntity<AtendimentoResponseDTO> create(@Valid @RequestBody AtendimentoRequestDTO atendimentoRequestDTO){

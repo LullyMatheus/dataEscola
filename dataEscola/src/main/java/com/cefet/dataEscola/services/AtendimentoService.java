@@ -29,6 +29,11 @@ public class AtendimentoService {
 		
 		return Optional.of(new AtendimentoResponseDTO(atendimento));
     }
+
+    public List<Atendimento> buscarPorNomeDoAluno(String nome) {
+        // Se eu quiser acrescentar uma regra de negocio, ela fica aqui
+        return atendimentoRepository.findByAlunoNomeContaining(nome);
+    }
     
     //Salvar ou atualizar
     public AtendimentoResponseDTO save(AtendimentoRequestDTO atendimentoRequestDTO){

@@ -45,6 +45,9 @@ public class UsuarioService {
 		
     	usuario.setNome(usuarioRequestDTO.getNome());
     	usuario.setCpf(usuarioRequestDTO.getCpf());
+		usuario.setEmail(usuarioRequestDTO.getEmail());
+		usuario.setSenha(usuarioRequestDTO.getSenha());
+		usuario.setTipo(usuarioRequestDTO.getTipoUsuario());
     	
     	Usuario usuarioSalvo = usuarioRepository.save(usuario);
         return new UsuarioResponseDTO(usuarioSalvo);

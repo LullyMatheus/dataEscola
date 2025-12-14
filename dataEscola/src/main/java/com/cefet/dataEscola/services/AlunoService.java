@@ -41,8 +41,7 @@ public class AlunoService {
     			.orElseThrow(() -> new EntityNotFoundException("Aluno não localizado com ID: " + alunoRequestDTO.getId()));
     	
             }
-
-        
+            
         //os parametros abaixo devem ser passados para a API no momento de cadastrar um novo aluno		
         
     	aluno.setNome(alunoRequestDTO.getNome());

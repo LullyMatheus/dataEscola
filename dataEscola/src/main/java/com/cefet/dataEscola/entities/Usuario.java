@@ -38,7 +38,7 @@ public class Usuario {
 
     public Usuario() {}
 
-        public Usuario(Long id, String nome, String cpf, String senha, String email, TipoUsuario tipo) {
+    public Usuario(Long id, String nome, String cpf, String senha, String email, TipoUsuario tipo) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
