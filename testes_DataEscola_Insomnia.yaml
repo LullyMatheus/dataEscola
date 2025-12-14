@@ -1,35 +1,15 @@
 type: collection.insomnia.rest/5.0
+schema_version: "5.1"
 name: ProjetoFinal
 meta:
-  id: wrk_014a277f435c4f318c42d5770e70ae74
-  created: 1765391518072
-  modified: 1765391518072
+  id: wrk_df539324da2c43268f13e0ed8e6f710e
+  created: 1765651302112
+  modified: 1765651302112
   description: ""
 collection:
-  - url: ""
-    name: New Request
-    meta:
-      id: req_ab7d81a5c13841b28419bfb5319d6718
-      created: 1765391529269
-      modified: 1765391529269
-      isPrivate: false
-      description: ""
-      sortKey: -1765391529269
-    method: GET
-    headers:
-      - name: User-Agent
-        value: insomnia/11.6.1
-    settings:
-      renderRequestBody: true
-      encodeUrl: true
-      followRedirects: global
-      cookies:
-        send: true
-        store: true
-      rebuildPath: true
   - name: Aluno
     meta:
-      id: fld_d5d3529fdefc408fa3e4898004de4e7c
+      id: fld_a3a81d0d31054b1cb6fbdc9996f181ad
       created: 1759706716472
       modified: 1765393549457
       sortKey: -1758076959042
@@ -38,7 +18,7 @@ collection:
       - url: http://localhost:8888/api/alunos
         name: Listar todos
         meta:
-          id: req_b31ee824bf0c4dc1ac6e5b1fbfe1c44f
+          id: req_87d47fa16bb74cd39ff7f8f71f41292b
           created: 1759706716474
           modified: 1765391551878
           isPrivate: false
@@ -59,7 +39,7 @@ collection:
       - url: http://localhost:8888/api/alunos/1
         name: Buscar por ID
         meta:
-          id: req_043685c07edf4967bf98081ba7be467a
+          id: req_87bd035b6be9484fbfcc06a7fad94060
           created: 1759706716478
           modified: 1765391600351
           isPrivate: false
@@ -80,7 +60,7 @@ collection:
       - url: http://localhost:8888/api/alunos/2
         name: Remover por ID
         meta:
-          id: req_113215a6570d4085a2001072962515d7
+          id: req_db383ee6f5ba45fd83c3beaf0050811c
           created: 1759706716481
           modified: 1765393345993
           isPrivate: false
@@ -101,7 +81,7 @@ collection:
       - url: http://localhost:8888/api/alunos
         name: "Cadastrar "
         meta:
-          id: req_c51cabba7fa241a68c9b48e202351b1e
+          id: req_ce6a8837f5da42d7be6487976316898d
           created: 1759706716485
           modified: 1765392703654
           isPrivate: false
@@ -134,7 +114,7 @@ collection:
       - url: http://localhost:8888/api/alunos/2
         name: Atualizar
         meta:
-          id: req_b4387061e8654998babc298b43707c26
+          id: req_dd2159c5765441d390939f17997c7ce7
           created: 1759706716488
           modified: 1765393222404
           isPrivate: false
@@ -165,16 +145,169 @@ collection:
             send: true
             store: true
           rebuildPath: true
+  - name: Usuario
+    meta:
+      id: fld_b32a4e96251343768acfd3ad64837188
+      created: 1765668059604
+      modified: 1765668059604
+      sortKey: -1765668059604
+      description: ""
+    children:
+      - url: http://localhost:8888/api/usuario
+        name: Listar todos
+        meta:
+          id: req_8fbf9cd2f45a48d5aee792f4be7f868d
+          created: 1765668089122
+          modified: 1765670958931
+          isPrivate: false
+          description: ""
+          sortKey: -1765668092801
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/usuario/1
+        name: Buscar por ID
+        meta:
+          id: req_928a4de19cea485f81a105363c19dd11
+          created: 1765669146727
+          modified: 1765671345893
+          isPrivate: false
+          description: ""
+          sortKey: -1765668092751
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/usuario
+        name: Cadastrar
+        meta:
+          id: req_a9aafbc4e8454cff898d6d60a30dd9bc
+          created: 1765669183145
+          modified: 1765670332249
+          isPrivate: false
+          description: ""
+          sortKey: -1765668092701
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Helena Pera",
+            	"cpf": "444.444.444-44",
+            	"email": "helenapera@gmail.com",
+            	"senha": "123",
+            	"tipoUsuario": "SERVIDOR"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/usuario/4
+        name: Deletar por ID
+        meta:
+          id: req_42e1f4fe5f2140a78c7f429efe763b2e
+          created: 1765671291350
+          modified: 1765671956120
+          isPrivate: false
+          description: ""
+          sortKey: -1765668092601
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/usuario/5
+        name: Atualizar
+        meta:
+          id: req_3a547ffb039b48b286ced64425b0d21c
+          created: 1765671981741
+          modified: 1765672149968
+          isPrivate: false
+          description: ""
+          sortKey: -1765668092651
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id":5,
+            	"nome": "Helena Pera",
+            	"cpf": "555.555.555-5",
+            	"email": "helenapera@gmail.com",
+            	"senha": "123",
+            	"tipoUsuario": "SERVIDOR"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_66dd0c01714b4f2c944705008b4be033
+    id: jar_733d947a60894c67ae639ebc35fc682d
     created: 1759706716463
     modified: 1759706716463
 environments:
   name: Base Environment
   meta:
-    id: env_66fd2c95ce6e497084e4aaf486a43419
+    id: env_4ec3e5e3535e453d81516f2ed48b3ec9
     created: 1759706716459
     modified: 1759706716459
     isPrivate: false
