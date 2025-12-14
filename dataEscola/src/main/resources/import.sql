@@ -12,9 +12,20 @@ INSERT INTO tb_usuario (cpf, email, nome, senha, tipo) VALUES ('333.333.333-33',
 
 --Preencher tb_atendimento
 INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES ('Atendimento', '2024-03-02', '2024-03-01', 'REALIZADO', 1, 1);
-INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES ('Atendimento', '2024-03-05', '2024-03-04', 'AGENDADO', 2, 3);
+INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES ('Atendimento', '2024-03-05', '2026-03-04', 'AGENDADO', 2, 3);
 INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES ('Atendimento', '2024-03-06', '2024-03-05', 'CANCELADO', 4, 3);
 INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES ('Atendimento', '2024-03-08', '2024-03-07', 'REALIZADO', 3, 2);
+INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES ('Atendimento', '2024-01-24', '2024-01-23', 'REALIZADO', 5, 3);
+INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES ('Atendimento', '2024-12-13', '2026-12-12', 'AGENDADO', 2, 2);
+INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES ('Atendimento', '2024-01-14', '2024-01-13', 'CANCELADO', 4, 2);
+INSERT INTO tb_atendimento (descricao, data_atendimento, data_lembrete, situacao, aluno_id, usuario_id) VALUES ('Atendimento', '2024-11-23', '2024-11-22', 'REALIZADO', 1, 2);
 
 --Preencher tb_atividadeAcademica
-INSERT INTO tb_atividade_academica (id_aluno, descricao, observacao, status_atividade) VALUES (1,'Debate Filosófico','Sem observações','CONCLUIDO');
+INSERT INTO tb_atividade_academica (id_aluno, descricao, observacao, status_atividade) VALUES (1,'Debate Filosófico','A Educação que Transforma','CONCLUIDO');
+INSERT INTO tb_atividade_academica (id_aluno, descricao, observacao, status_atividade) VALUES (3,'Debate Filosófico','A Educação que Transforma','CONCLUIDO');
+INSERT INTO tb_atividade_academica (id_aluno, descricao, observacao, status_atividade) VALUES (5,'Debate Filosófico','A Educação que Transforma','CONCLUIDO');
+INSERT INTO tb_atividade_academica (id_aluno, descricao, observacao, status_atividade) VALUES (1,'SAEC 2025','Dia 1 da SAEC','CONCLUIDO');
+INSERT INTO tb_atividade_academica (id_aluno, descricao, observacao, status_atividade) VALUES (2,'SAEC 2025','Dia 2 da SAEC','CONCLUIDO');
+INSERT INTO tb_atividade_academica (id_aluno, descricao, observacao, status_atividade) VALUES (3,'SAEC 2025','Dia 3 da SAEC','CONCLUIDO');
+INSERT INTO tb_atividade_academica (id_aluno, descricao, observacao, status_atividade) VALUES (4,'SAEC 2025','Dia 4 da SAEC','CONCLUIDO');
+INSERT INTO tb_atividade_academica (id_aluno, descricao, observacao, status_atividade) VALUES (5,'SAEC 2025','Dia 5 da SAEC','CONCLUIDO');

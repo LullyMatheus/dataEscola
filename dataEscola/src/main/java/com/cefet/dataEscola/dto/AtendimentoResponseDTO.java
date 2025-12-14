@@ -2,11 +2,12 @@ package com.cefet.dataEscola.dto;
 
 import java.time.LocalDate;
 import com.cefet.dataEscola.Enums.SituacaoAtendimento;
-import com.cefet.dataEscola.entities.Aluno;
 import com.cefet.dataEscola.entities.Atendimento;
 import com.cefet.dataEscola.entities.Usuario;
 
 public class AtendimentoResponseDTO {
+
+    //LEMBRAR: esses atributos vao aparecer como resposta na minha requisicao JSON
 
     private Long id;
 
@@ -18,9 +19,9 @@ public class AtendimentoResponseDTO {
 
     private SituacaoAtendimento situacao;
 
-    private Aluno aluno;
+    private String alunoNome;
 
-    private Usuario usuario;
+    private String usuarioNome;
 
     
     public AtendimentoResponseDTO(){
@@ -36,8 +37,8 @@ public class AtendimentoResponseDTO {
         this.dataAtendimento = atendimento.getDataAtendimento();
         this.dataLembrete = atendimento.getDataLembrete();
         this.situacao = atendimento.getSituacao();
-        this.aluno = atendimento.getAluno();
-        this.usuario = atendimento.getUsuario();
+        this.alunoNome = atendimento.getAluno().getNome();
+        this.usuarioNome = atendimento.getUsuario().getNome();
     }
 
     public Long getId() {
@@ -76,20 +77,20 @@ public class AtendimentoResponseDTO {
         this.situacao = situacao;
     }
 
-    public Aluno getAluno() {
-        return aluno;
+    public String getAlunoNome() {
+        return alunoNome;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void setAluno(String alunoNome) {
+        this.alunoNome = alunoNome;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getUsuarioNome() {
+        return usuarioNome;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarioNome(String usuarioNome) {
+        this.usuarioNome = usuarioNome;
     }
     
 }
