@@ -12,7 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -38,7 +37,7 @@ public class Atendimento {
     @Column(nullable = false, length = 15)
     private SituacaoAtendimento situacao;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
 

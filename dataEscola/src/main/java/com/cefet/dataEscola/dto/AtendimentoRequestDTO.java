@@ -5,6 +5,7 @@ import com.cefet.dataEscola.Enums.SituacaoAtendimento;
 import com.cefet.dataEscola.entities.Aluno;
 import com.cefet.dataEscola.entities.Usuario;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class AtendimentoRequestDTO {
@@ -14,19 +15,19 @@ public class AtendimentoRequestDTO {
     @Size(max=500, message = "A descrição não pode ter mais de 500 caracteres")
     private String descricao;
 
-    @NotBlank(message = "O campo 'dataAtendimento' é obrigatório.")
+    @NotNull(message = "O campo 'dataAtendimento' é obrigatório.")
     private LocalDate dataAtendimento;
 
     private LocalDate dataLembrete;
 
-    @NotBlank(message = "O campo 'situação' é obrigatório.")
+    @NotNull(message = "O campo 'situação' é obrigatório.")
     private SituacaoAtendimento situacao;
     
-    @NotBlank(message = "O campo 'aluno' é obrigatório.")
-    private Aluno aluno;
+    @NotNull(message = "O campo 'aluno' é obrigatório.")
+    private Long idAluno;
     
-    @NotBlank(message = "O campo 'usuário' é obrigatório.")
-    private Usuario usuario;
+    @NotNull(message = "O campo 'usuário' é obrigatório.")
+    private Long idUsuario;
 
     public AtendimentoRequestDTO(){
         //Contrutor Vazio
@@ -37,14 +38,14 @@ public class AtendimentoRequestDTO {
             @NotBlank(message = "O campo 'dataAtendimento' é obrigatório.") LocalDate dataAtendimento,
             LocalDate dataLembrete,
             @NotBlank(message = "O campo 'situação' é obrigatório.") SituacaoAtendimento situacao,
-            @NotBlank(message = "O campo 'aluno' é obrigatório.") Aluno aluno,
-            @NotBlank(message = "O campo 'usuário' é obrigatório.") Usuario usuario) {
+            @NotBlank(message = "O campo 'aluno' é obrigatório.") Long idAluno,
+            @NotBlank(message = "O campo 'usuário' é obrigatório.") Long idUsuario) {
         this.descricao = descricao;
         this.dataAtendimento = dataAtendimento;
         this.dataLembrete = dataLembrete;
         this.situacao = situacao;
-        this.aluno = aluno;
-        this.usuario = usuario;
+        this.idAluno = idAluno;
+        this.idUsuario = idUsuario;
     }
 
     public Long getId() {
@@ -83,20 +84,20 @@ public class AtendimentoRequestDTO {
         this.situacao = situacao;
     }
 
-    public Aluno getAluno() {
-        return aluno;
+    public Long getIdAluno() {
+        return idAluno;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void setIdAluno(Long idAluno) {
+        this.idAluno = idAluno;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Long getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
     
     

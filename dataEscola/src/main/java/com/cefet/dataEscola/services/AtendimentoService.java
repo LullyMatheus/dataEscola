@@ -6,15 +6,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cefet.dataEscola.dto.AtendimentoRequestDTO;
 import com.cefet.dataEscola.dto.AtendimentoResponseDTO;
+import com.cefet.dataEscola.entities.Aluno;
+import com.cefet.dataEscola.entities.Usuario;
 import com.cefet.dataEscola.entities.Atendimento;
+import com.cefet.dataEscola.repositories.AlunoRepository;
 import com.cefet.dataEscola.repositories.AtendimentoRepository;
+import com.cefet.dataEscola.repositories.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class AtendimentoService {
 
+    private final AlunoRepository alunoRepository;
+    private final UsuarioRepository usuarioRepository;
+
     @Autowired
     private AtendimentoRepository atendimentoRepository;
+
+    AtendimentoService(AlunoRepository alunoRepository, UsuarioRepository usuarioRepository) {
+        this.alunoRepository = alunoRepository;
+        this.usuarioRepository = usuarioRepository;
+    }
 
     //Buscar todos
     public List<AtendimentoResponseDTO> findAll(){
@@ -52,8 +64,17 @@ public class AtendimentoService {
     	atendimento.setDataAtendimento(atendimentoRequestDTO.getDataAtendimento());
         atendimento.setDataLembrete(atendimentoRequestDTO.getDataLembrete());
         atendimento.setSituacao(atendimentoRequestDTO.getSituacao());
-        atendimento.setAluno(atendimentoRequestDTO.getAluno());
-        atendimento.setUsuario(atendimentoRequestDTO.getUsuario());
+
+        Long idAluno = atendimentoRequestDTO.getIdAluno();
+        Aluno aluno = alunoRepository.findById(idAluno)
+            .orElseThrow(() -> new EntityNotFoundException("Aluno não localizado com ID: " + idAluno));
+
+        Long idUsuario = atendimentoRequestDTO.getIdUsuario();
+        Usuario usuario = usuarioRepository.findById(idUsuario)
+            .orElseThrow(() -> new EntityNotFoundException("Usuario não localizado com ID: " + idUsuario));
+
+        atendimento.setAluno(aluno);
+        atendimento.setUsuario(usuario);
     	
     	Atendimento atendimentoSalvo = atendimentoRepository.save(atendimento);
         return new AtendimentoResponseDTO(atendimentoSalvo);

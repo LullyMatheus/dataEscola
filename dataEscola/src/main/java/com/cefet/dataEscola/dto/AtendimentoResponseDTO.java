@@ -3,7 +3,6 @@ package com.cefet.dataEscola.dto;
 import java.time.LocalDate;
 import com.cefet.dataEscola.Enums.SituacaoAtendimento;
 import com.cefet.dataEscola.entities.Atendimento;
-import com.cefet.dataEscola.entities.Usuario;
 
 public class AtendimentoResponseDTO {
 
