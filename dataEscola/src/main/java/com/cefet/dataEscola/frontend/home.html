@@ -7,8 +7,139 @@
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
      <link type="text/css" rel="stylesheet" href="css/estilo.css"/>
   </head>
+
   <body>
-    <h1>DATA ESCOLA</h1>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-  </body>
+
+    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalAluno">
+      Novo Aluno
+    </button>
+
+    <div class="modal fade" id="modalAluno">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Novo Aluno</h5>
+          </div>
+          <div class="modal-body">
+            <input id="nomeAluno" class="form-control mb-2" placeholder="Nome">
+            <input id="matriculaAluno" class="form-control mb-2" placeholder="Matrícula">
+            <input id="emailAluno" class="form-control mb-2" placeholder="Email">
+            <input id="contatoAluno" class="form-control mb-2" placeholder="Contato">
+            <input id="dataNascimentoAluno" type="date" class="form-control mb-2">
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" onclick="salvarAluno()">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="container mt-4">
+      <h2>Data Escola — Núcleo de Apoio e Acessibilidade</h2>
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <input
+            type="text"
+            id="pesquisaNome"
+            class="form-control"
+            placeholder="Digite o nome do aluno"
+          >
+        </div>
+        <div class="col-md-2">
+          <button id="btnBuscar" class="btn btn-primary w-100">
+            Buscar
+          </button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-secondary w-100" onclick="carregarAlunos()">
+            Limpar
+          </button>
+        </div>
+      </div>
+
+
+
+    <!-- NAV TABS -->
+    <ul class="nav nav-tabs mt-4" id="menuTabs" role="tablist">
+      <li class="nav-item">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#alunos">
+          Alunos
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#atendimentos">
+          Atendimentos
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#atividades">
+          Atividades Acadêmicas
+        </button>
+      </li>
+    </ul>
+
+    <!-- CONTEÚDO DAS TABS -->
+    <div class="tab-content mt-3">
+
+      <!-- ALUNOS -->
+      <div class="tab-pane fade show active" id="alunos">
+        <h4>Alunos</h4>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Matrícula</th>
+              <th>Nome</th>
+              <th>Data Nascimento</th>
+              <th>Email</th>
+              <th>Contato</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-alunos">
+            <!-- preenchido via JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ATENDIMENTOS -->
+      <div class="tab-pane fade" id="atendimentos">
+        <h4>Atendimentos</h4>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Descrição</th>
+              <th>Data</th>
+              <th>Situação</th>
+              <th>Responsável</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-atendimentos">
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ATIVIDADES -->
+      <div class="tab-pane fade" id="atividades">
+        <h4>Atividades Acadêmicas</h4>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Descrição</th>
+              <th>Observação</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-atividades">
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/bootstrap.js"></script>
+  <script src="js/home.js"></script>
+
+</body>
 </html>

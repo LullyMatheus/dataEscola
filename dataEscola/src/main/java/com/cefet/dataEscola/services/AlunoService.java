@@ -67,4 +67,23 @@ public class AlunoService {
 	public boolean existsById(Long id) {
 	    return alunoRepository.existsById(id);
 	}	
+
+    public List<AlunoResponseDTO> buscarPorNome(String nome) {
+    return alunoRepository
+        .findByNomeContainingIgnoreCase(nome)
+        .stream()
+        .map(this::toDTO)
+        .toList();
+    }
+
+        private AlunoResponseDTO toDTO(Aluno aluno) {
+        return new AlunoResponseDTO(
+                aluno.getId(),
+                aluno.getMatricula(),
+                aluno.getNome(),
+                aluno.getDataNascimento(),
+                aluno.getEmail(),
+                aluno.getContatos()
+        );
+    }
 }

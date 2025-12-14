@@ -19,7 +19,7 @@ public class AlunoResponseDTO {
     private String contatos;
 
     
-    public AlunoResponseDTO(){
+    public AlunoResponseDTO(Long long1, String string, String string2, LocalDate localDate, String string3, String string4){
         //construtor vazio, eh util em alguns casos
     }
     

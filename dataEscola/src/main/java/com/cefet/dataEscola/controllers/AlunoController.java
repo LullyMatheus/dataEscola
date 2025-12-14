@@ -38,6 +38,12 @@ public class AlunoController {
         return ResponseEntity.ok(alunoResponseDTO);         
     } 
 
+    @GetMapping("/nome/{nome}")
+    public List<AlunoResponseDTO> buscarPorNome(@PathVariable String nome) {
+        return alunoService.buscarPorNome(nome);
+    }
+
+
     @PostMapping
     public ResponseEntity<AlunoResponseDTO> create(@Valid @RequestBody AlunoRequestDTO alunoRequestDTO){
         AlunoResponseDTO alunoResponseDTO = alunoService.save(alunoRequestDTO);
