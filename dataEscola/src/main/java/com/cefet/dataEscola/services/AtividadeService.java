@@ -3,7 +3,6 @@ package com.cefet.dataEscola.services;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cefet.dataEscola.Enums.StatusAtividade;
 import com.cefet.dataEscola.dto.AtividadeRequestDTO;
 import com.cefet.dataEscola.dto.AtividadeResponseDTO;
@@ -11,7 +10,6 @@ import com.cefet.dataEscola.entities.Aluno;
 import com.cefet.dataEscola.entities.Atividade;
 import com.cefet.dataEscola.repositories.AlunoRepository;
 import com.cefet.dataEscola.repositories.AtividadeRepository;
-
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 

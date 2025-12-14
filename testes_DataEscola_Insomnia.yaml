@@ -11,8 +11,8 @@ collection:
     meta:
       id: fld_a3a81d0d31054b1cb6fbdc9996f181ad
       created: 1759706716472
-      modified: 1765393549457
-      sortKey: -1758076959042
+      modified: 1765725612518
+      sortKey: -1765725091372
       description: ""
     children:
       - url: http://localhost:8888/api/alunos
@@ -149,8 +149,8 @@ collection:
     meta:
       id: fld_b32a4e96251343768acfd3ad64837188
       created: 1765668059604
-      modified: 1765713078815
-      sortKey: -1765668059604
+      modified: 1765725614884
+      sortKey: -1765725091322
       description: ""
     children:
       - url: http://localhost:8888/api/usuario
@@ -302,8 +302,8 @@ collection:
     meta:
       id: fld_1ad7c0cbcf4c480cb7e1d06ceaca4028
       created: 1765713064021
-      modified: 1765713064021
-      sortKey: -1765713064021
+      modified: 1765725616783
+      sortKey: -1765725091297
       description: ""
     children:
       - url: http://localhost:8888/api/atendimento
@@ -434,6 +434,152 @@ collection:
           isPrivate: false
           description: ""
           sortKey: -1765713070833
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Atividade Acadêmica
+    meta:
+      id: fld_20ec09d1b87d49c189bfac251f9d1296
+      created: 1765725091272
+      modified: 1765725091272
+      sortKey: -1765725091272
+      description: ""
+    children:
+      - url: http://localhost:8888/api/atividades
+        name: Listar todas
+        meta:
+          id: req_7b23d162fd6243e7a3b6e978935b90fa
+          created: 1765725094839
+          modified: 1765725158792
+          isPrivate: false
+          description: ""
+          sortKey: -1765725097118
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/atividades/1
+        name: Buscar por ID
+        meta:
+          id: req_ff3ebc80ed7d4382a43db55a7d15d971
+          created: 1765725161473
+          modified: 1765725177911
+          isPrivate: false
+          description: ""
+          sortKey: -1765725097018
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/atividades
+        name: Cadastrar
+        meta:
+          id: req_a9bcb2abb2984e44831b8f77e9e3e75a
+          created: 1765725185811
+          modified: 1765725424006
+          isPrivate: false
+          description: ""
+          sortKey: -1765725096918
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao": "SAMET",
+            	"observacao": "Dia 1 da SAMET",
+            	"status": "ATIVO",
+            	"idAluno": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/atividades/9
+        name: Atualizar
+        meta:
+          id: req_90008e58a3e04a7c99a892281ad8e4dd
+          created: 1765725466248
+          modified: 1765725532543
+          isPrivate: false
+          description: ""
+          sortKey: -1765725096818
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 9,
+            	"descricao": "SAMET",
+            	"observacao": "Dia 1 da SAMET",
+            	"status": "ATIVO",
+            	"idAluno": 4
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/atividades/9
+        name: Delete
+        meta:
+          id: req_90639b3ee24b4a2697d7aad6fda9df74
+          created: 1765725568104
+          modified: 1765725582121
+          isPrivate: false
+          description: ""
+          sortKey: -1765725096718
         method: DELETE
         headers:
           - name: User-Agent
