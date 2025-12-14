@@ -20,7 +20,7 @@ collection:
         meta:
           id: req_87d47fa16bb74cd39ff7f8f71f41292b
           created: 1759706716474
-          modified: 1765391551878
+          modified: 1765720730026
           isPrivate: false
           description: ""
           sortKey: -1758076982481
@@ -149,7 +149,7 @@ collection:
     meta:
       id: fld_b32a4e96251343768acfd3ad64837188
       created: 1765668059604
-      modified: 1765668059604
+      modified: 1765713078815
       sortKey: -1765668059604
       description: ""
     children:
@@ -286,6 +286,156 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Atendimento
+    meta:
+      id: fld_1ad7c0cbcf4c480cb7e1d06ceaca4028
+      created: 1765713064021
+      modified: 1765713064021
+      sortKey: -1765713064021
+      description: ""
+    children:
+      - url: http://localhost:8888/api/atendimento
+        name: Listar Todos
+        meta:
+          id: req_c770a0453a924611ad4ac3453167d18f
+          created: 1765713069336
+          modified: 1765713998991
+          isPrivate: false
+          description: ""
+          sortKey: -1765713071233
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/atendimento/3
+        name: Buscar por ID
+        meta:
+          id: req_b38348c12b4b400e9e1fd307df3ad43b
+          created: 1765714002519
+          modified: 1765721517535
+          isPrivate: false
+          description: ""
+          sortKey: -1765713071133
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/atendimento
+        name: Cadastrar
+        meta:
+          id: req_6d448921a852422ca1dd7deceb3e31f0
+          created: 1765714210226
+          modified: 1765721010377
+          isPrivate: false
+          description: ""
+          sortKey: -1765713071033
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao": "Atendimento",
+            	"dataAtendimento": "2024-03-02",
+            	"dataLembrete": "2024-03-01",
+            	"situacao": "REALIZADO",
+            	"idAluno": 1,
+            	"idUsuario": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/atendimento/9
+        name: Atualizar
+        meta:
+          id: req_d892b3ff314b4d2798392df4d715812a
+          created: 1765721540434
+          modified: 1765721621938
+          isPrivate: false
+          description: ""
+          sortKey: -1765713070933
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id":9,
+            	"descricao": "Atendimento",
+            	"dataAtendimento": "2024-03-02",
+            	"dataLembrete": "2024-03-01",
+            	"situacao": "REALIZADO",
+            	"idAluno": 2,
+            	"idUsuario": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8888/api/atendimento/9
+        name: Deletar
+        meta:
+          id: req_5a8281bd365446acac3e2b30fcfc9034
+          created: 1765721633092
+          modified: 1765721672462
+          isPrivate: false
+          description: ""
+          sortKey: -1765713070833
+        method: DELETE
+        headers:
           - name: User-Agent
             value: insomnia/12.1.0
             description: ""
