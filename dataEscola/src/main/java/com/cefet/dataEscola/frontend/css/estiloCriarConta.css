@@ -1,0 +1,27 @@
+h1{
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.tipo{
+    padding-top: 2%;
+}
+
+.linkVoltar{
+    padding-top: 1%;
+}
+
+.logo{
+    text-align: left;
+    padding-bottom: 1%;
+}
+
+.cadastro{
+    padding-top: 1%;
+}
+
+.btnNovoAluno{
+    padding-top: 2%;
+    padding-left: 2%;
+    font-size: small;
+}
