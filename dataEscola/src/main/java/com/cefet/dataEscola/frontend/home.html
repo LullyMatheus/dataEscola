@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
-     <link type="text/css" rel="stylesheet" href="css/estilo.css"/>
+     <link type="text/css" rel="stylesheet" href="css/estiloHome.css"/>
   </head>
 
   <body>
-
-    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalAluno">
-      Novo Aluno
-    </button>
-
+    <div class="logo">
+            <img src="img/dataEsccolaLogo.svg" width="50px">
+        </div>
     <div class="modal fade" id="modalAluno">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -35,7 +33,7 @@
     </div>
 
       <div class="container mt-4">
-      <h2>Data Escola — Núcleo de Apoio e Acessibilidade</h2>
+      <h2>Data Escola — Gestão de Informações Acadêmicas</h2>
       <div class="row mb-3">
         <div class="col-md-8">
           <input
@@ -54,6 +52,11 @@
           <button class="btn btn-secondary w-100" onclick="carregarAlunos()">
             Limpar
           </button>
+          </div>
+          <div class="btnNovoAluno">
+          <a href="#modalAluno" data-bs-toggle="modal" data-bs-target="#modalAluno">
+            Cadastrar Novo Aluno
+          </a>
         </div>
       </div>
 
