@@ -594,6 +594,37 @@ collection:
             send: true
             store: true
           rebuildPath: true
+  - name: AlunoAtendimento
+    meta:
+      id: fld_68f224acb68c41249631c47cca65a6e1
+      created: 1765810010042
+      modified: 1765810021393
+      sortKey: -1765725091309.5
+      description: ""
+    children:
+      - url: http://localhost:8888/api/atendimento/por-aluno?nome=Lisa Simpson
+        name: Atendimentos por aluno
+        meta:
+          id: req_03a5311fd0f54a2ba9a99839a11864ab
+          created: 1765810029696
+          modified: 1765810476955
+          isPrivate: false
+          description: ""
+          sortKey: -1765810031612
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:

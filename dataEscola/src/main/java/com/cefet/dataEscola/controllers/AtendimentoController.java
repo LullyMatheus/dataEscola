@@ -39,12 +39,11 @@ public class AtendimentoController {
         Optional<AtendimentoResponseDTO> atendimentoResponseDTO = atendimentoService.findById(id);
         return ResponseEntity.ok(atendimentoResponseDTO);         
     } 
-
+    
     @GetMapping("/por-aluno")
-    public List<Atendimento> listarPorAluno(@RequestParam String nome) {
-        //filtra os atendimentos por aluno
+        public List<AtendimentoResponseDTO> listarPorAluno(@RequestParam String nome) {
         return atendimentoService.buscarPorNomeDoAluno(nome);
-    }
+}
 
     @PostMapping
     public ResponseEntity<AtendimentoResponseDTO> create(@Valid @RequestBody AtendimentoRequestDTO atendimentoRequestDTO){

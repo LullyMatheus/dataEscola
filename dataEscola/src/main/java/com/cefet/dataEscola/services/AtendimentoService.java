@@ -2,6 +2,8 @@ package com.cefet.dataEscola.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cefet.dataEscola.dto.AtendimentoRequestDTO;
@@ -42,9 +44,13 @@ public class AtendimentoService {
 		return Optional.of(new AtendimentoResponseDTO(atendimento));
     }
 
-    public List<Atendimento> buscarPorNomeDoAluno(String nome) {
+    public List<AtendimentoResponseDTO> buscarPorNomeDoAluno(String nome) {
         // Se eu quiser acrescentar uma regra de negocio, ela fica aqui
-        return atendimentoRepository.findByAlunoNomeContaining(nome);
+        List<Atendimento> atendimentos = atendimentoRepository.findByAlunoNomeContaining(nome);
+        List<AtendimentoResponseDTO> dtos = atendimentos.stream()
+        .map(AtendimentoResponseDTO::new)
+        .collect(Collectors.toList());
+        return dtos;
     }
     
     //Salvar ou atualizar
