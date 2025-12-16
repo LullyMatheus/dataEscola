@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.cefet.dataEscola.Enums.SituacaoAtendimento;
 import com.cefet.dataEscola.dto.AtendimentoRequestDTO;
 import com.cefet.dataEscola.dto.AtendimentoResponseDTO;
 import com.cefet.dataEscola.entities.Atendimento;
@@ -79,5 +81,11 @@ public class AtendimentoController {
         atendimentoService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/situacoes")
+        public SituacaoAtendimento[] listarSituacoes() {
+        return SituacaoAtendimento.values();
+    }
+
     
 }

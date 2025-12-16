@@ -25,7 +25,12 @@ public class AtendimentoService {
     @Autowired
     private AtendimentoRepository atendimentoRepository;
 
-    AtendimentoService(AlunoRepository alunoRepository, UsuarioRepository usuarioRepository) {
+    public AtendimentoService(
+        AtendimentoRepository atendimentoRepository,
+        AlunoRepository alunoRepository,
+        UsuarioRepository usuarioRepository
+    ) {
+        this.atendimentoRepository = atendimentoRepository;
         this.alunoRepository = alunoRepository;
         this.usuarioRepository = usuarioRepository;
     }
@@ -101,6 +106,6 @@ public class AtendimentoService {
             .stream()
             .map(AtendimentoResponseDTO::new)
             .toList();
-}
+    }
 
 }

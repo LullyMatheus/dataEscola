@@ -6,7 +6,7 @@ function salvarAluno() {
             nome: nomeAluno.value,
             matricula: matriculaAluno.value,
             email: emailAluno.value,
-            contato: contatoAluno.value,
+            contatos: contatoAluno.value,
             dataNascimento: dataNascimentoAluno.value
         })
     })
@@ -22,32 +22,104 @@ function salvarAluno() {
     });
 }
 
+function carregarSituacoesAtendimento() {
+    fetch("http://localhost:8888/api/atendimento/situacoes")
+        .then(res => res.json())
+        .then(situacoes => {
+            const select = document.getElementById("situacaoAtendimento");
+            select.innerHTML = '<option value="">Selecione a situação</option>';
+
+            situacoes.forEach(s => {
+                select.innerHTML += `<option value="${s}">${s}</option>`;
+            });
+        });
+}
+
+document
+  .getElementById("modalAtendimento")
+  .addEventListener("show.bs.modal", () => {
+      carregarSituacoesAtendimento();
+      carregarAlunosSelect();
+      carregarUsuariosSelect();
+  });
+
+function carregarUsuariosSelect() {
+    fetch("http://localhost:8888/api/usuario")
+        .then(res => res.json())
+        .then(usuarios => {
+            const select = document.getElementById("responsavelAtendimento");
+            select.innerHTML = '<option value="">Selecione o responsável</option>';
+
+            usuarios.forEach(usuario => {
+                select.innerHTML += `
+                    <option value="${usuario.id}">
+                        ${usuario.nome}
+                    </option>
+                `;
+            });
+        });
+}
+
+function carregarAlunosSelect() {
+    fetch("http://localhost:8888/api/alunos")
+        .then(res => res.json())
+        .then(alunos => {
+            const select = document.getElementById("alunoAtendimento");
+            select.innerHTML = '<option value="">Selecione o aluno</option>';
+
+            alunos.forEach(aluno => {
+                select.innerHTML += `
+                    <option value="${aluno.id}">
+                        ${aluno.nome}
+                    </option>
+                `;
+            });
+        });
+}
+
 function salvarAtendimento() {
-  const alunoId = document.getElementById("alunoAtendimento").value;
+    if (!alunoAtendimento.value) {
+        alert("Selecione um aluno");
+        return;
+    }
 
-  if (!alunoId) {
-    alert("Selecione um aluno");
-    return;
-  }
+    if (!responsavelAtendimento.value) {
+        alert("Selecione um responsável");
+        return;
+    }
 
-  const atendimento = {
-    alunoId: alunoId,
-    descricao: document.getElementById("descricaoAtendimento").value,
-    data: document.getElementById("dataAtendimento").value,
-    situacao: document.getElementById("situacaoAtendimento").value,
-    responsavel: document.getElementById("responsavelAtendimento").value
-  };
+    if (!dataAtendimento.value) {
+        alert("Informe a data do atendimento");
+        return;
+    }
 
-  fetch("http://localhost:8888/api/atendimento", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(atendimento)
-  })
-  .then(res => {
-    if (!res.ok) throw new Error("Erro ao salvar atendimento");
-    alert("Atendimento cadastrado com sucesso!");
-  })
-  .catch(err => alert(err.message));
+    const atendimento = {
+        descricao: descricaoAtendimento.value,
+        dataAtendimento: dataAtendimento.value,
+        situacao: situacaoAtendimento.value,
+        idAluno: Number(alunoAtendimento.value),
+        idUsuario: Number(responsavelAtendimento.value),
+        dataLembrete: null
+    };
+
+    console.log("Enviando:", atendimento);
+
+    fetch("http://localhost:8888/api/atendimento", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(atendimento)
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Erro ao salvar atendimento");
+        return res.json();
+    })
+    .then(() => {
+        alert("Atendimento cadastrado com sucesso!");
+        bootstrap.Modal.getInstance(
+            document.getElementById("modalAtendimento")
+        ).hide();
+    })
+    .catch(err => alert(err.message));
 }
 
 
@@ -98,23 +170,6 @@ function carregarAlunos() {
         })
         .catch(err => alert("Erro ao carregar alunos"));
 }
-
-function carregarAlunosSelect() {
-  fetch("http://localhost:8888/api/alunos")
-    .then(res => res.json())
-    .then(alunos => {
-      const select = document.getElementById("alunoAtendimento");
-      select.innerHTML = '<option value="">Selecione o aluno</option>';
-
-      alunos.forEach(aluno => {
-        const option = document.createElement("option");
-        option.value = aluno.id;       
-        option.textContent = aluno.nome; 
-        select.appendChild(option);
-      });
-    });
-}
-
 
 function limparTabelasRelacionadas() {
     document.getElementById("tabela-atendimentos").innerHTML = "";

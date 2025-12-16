@@ -30,7 +30,7 @@ public class Atendimento {
     @Column(nullable = false, length = 10)
     private LocalDate dataAtendimento;
 
-    @Column(nullable = false, length = 10)
+    @Column(nullable = true, length = 10)
     private LocalDate dataLembrete;
 
     @Enumerated(EnumType.STRING)
