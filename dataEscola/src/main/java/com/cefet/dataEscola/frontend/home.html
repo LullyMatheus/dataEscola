@@ -1,173 +1,172 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
-    <link rel="icon" href="img/favicon.svg" type="image/x-icon">
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
-     <link type="text/css" rel="stylesheet" href="css/estiloHome.css"/>
-  </head>
 
-  <body>
-    <div class="logo">
-          <a href="index.html" >
-            <img src="img/dataEsccolaLogo.svg" width="50px">
-          </a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home</title>
+  <link rel="icon" href="img/favicon.svg" type="image/x-icon">
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+  <link type="text/css" rel="stylesheet" href="css/estiloHome.css" />
+</head>
+
+<body>
+  <div class="logo">
+    <a href="index.html">
+      <img src="img/dataEsccolaLogo.svg" width="50px">
+    </a>
+  </div>
+  <div class="modal fade" id="modalAluno">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Novo Aluno</h5>
         </div>
-    <div class="modal fade" id="modalAluno">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5>Novo Aluno</h5>
-          </div>
-          <div class="modal-body">
-            <input id="nomeAluno" class="form-control mb-2" placeholder="Nome">
-            <input id="matriculaAluno" class="form-control mb-2" placeholder="Matrícula">
-            <input id="emailAluno" class="form-control mb-2" placeholder="Email">
-            <input id="contatoAluno" class="form-control mb-2" placeholder="Contato">
-            <input id="dataNascimentoAluno" type="date" class="form-control mb-2">
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-primary" onclick="salvarAluno()">Salvar</button>
-          </div>
+        <div class="modal-body">
+          <input id="nomeAluno" class="form-control mb-2" placeholder="Nome">
+          <input id="matriculaAluno" class="form-control mb-2" placeholder="Matrícula">
+          <input id="emailAluno" class="form-control mb-2" placeholder="Email">
+          <input id="contatoAluno" class="form-control mb-2" placeholder="Contato">
+          <input id="dataNascimentoAluno" type="date" class="form-control mb-2">
         </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="modalAtendimento">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5>Novo Atendimento</h5>
-          </div>
-
-          <div class="modal-body">
-
-            <!-- ALUNO -->
-            <select id="alunoAtendimento" class="form-control mb-2">
-              <option value="">Selecione o aluno</option>
-            </select>
-
-            <input id="descricaoAtendimento" class="form-control mb-2" placeholder="Descrição">
-            <a>Data atendimento</a>
-            <input id="dataAtendimento" type="date" class="form-control mb-2">
-
-            <select id="situacaoAtendimento" class="form-control mb-2">
-              <option value="">Selecione a situação</option>
-            </select>
-            <select id="responsavelAtendimento" class="form-control mb-2">
-              <option value="">Selecione o responsável</option>
-            </select>
-          </div>
-
-          <div class="modal-footer">
-            <button class="btn btn-primary" onclick="salvarAtendimento()">
-              Salvar
-            </button>
-          </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" onclick="salvarAluno()">Salvar</button>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="modal fade" id="modalAtendimento">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Novo Atendimento</h5>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- ALUNO -->
+          <select id="alunoAtendimento" class="form-control mb-2">
+            <option value="">Selecione o aluno</option>
+          </select>
+
+          <input id="descricaoAtendimento" class="form-control mb-2" placeholder="Descrição">
+          <a>Data atendimento</a>
+          <input id="dataAtendimento" type="date" class="form-control mb-2">
+
+          <select id="situacaoAtendimento" class="form-control mb-2">
+            <option value="">Selecione a situação</option>
+          </select>
+          <select id="responsavelAtendimento" class="form-control mb-2">
+            <option value="">Selecione o responsável</option>
+          </select>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-primary" onclick="salvarAtendimento()">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-      <div class="container mt-4">
-      <h2>Data Escola — Gestão de Informações Acadêmicas</h2>
-      <div class="small">
+  <div class="container mt-4">
+    <h2>Data Escola — Gestão de Informações Acadêmicas</h2>
+    <div class="small">
       <p>💡Dica: clique na logo para voltar à página de Login</p>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-8">
+        <input type="text" id="pesquisaNome" class="form-control" placeholder="Digite o nome do aluno">
       </div>
-      <div class="row mb-3">
-        <div class="col-md-8">
-          <input
-            type="text"
-            id="pesquisaNome"
-            class="form-control"
-            placeholder="Digite o nome do aluno"
-          >
-        </div>
-        <div class="col-md-2">
-          <button class="btn btn-success w-100" onclick="buscarAluno()">
-            Buscar
-          </button>
-        </div>
-        <div class="col-md-2">
-          <button class="btn btn-secondary w-100" onclick="carregarAlunos()">
-            Limpar
-          </button>
-          </div>
-          <!--MT significa margin top e ms significa margin start-->
-          <div class="mt-2 ms-1 btnNovoAluno small">
-            <a href="#modalAluno" data-bs-toggle="modal" data-bs-target="#modalAluno">
-              Cadastrar Novo Aluno
-            </a>
-          </div>
-          <div class="mt-2 ms-1 btnNovoAtendimento small">
-            <a href="#modalAtendimento" data-bs-toggle="modal" data-bs-target="#modalAtendimento" onclick="carregarAlunosSelect()">
-              Cadastrar Novo Atendimento
-            </a>
-          </div>
-        </div>
+      <div class="col-md-2">
+        <button class="btn btn-success w-100" onclick="buscarAluno()">
+          Buscar
+        </button>
       </div>
+      <div class="col-md-2">
+        <button class="btn btn-secondary w-100" onclick="carregarAlunos()">
+          Limpar
+        </button>
+      </div>
+      <!--MT significa margin top e ms significa margin start-->
+      <div class="mt-2 ms-1 btnNovoAluno small">
+        <a href="#modalAluno" data-bs-toggle="modal" data-bs-target="#modalAluno">
+          Cadastrar Novo Aluno
+        </a>
+      </div>
+      <div class="mt-2 ms-1 btnNovoAtendimento small">
+        <a href="#modalAtendimento" data-bs-toggle="modal" data-bs-target="#modalAtendimento"
+          onclick="carregarAlunosSelect()">
+          Cadastrar Novo Atendimento
+        </a>
+      </div>
+    </div>
+
 
 
 
     <!-- NAV TABS -->
-    <ul class="nav nav-tabs mt-4 ms-5" id="menuTabs" role="tablist">
-      <li class="nav-item">
-        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#alunos">
-          Alunos
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#atendimentos">
-          Atendimentos
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#atividades">
-          Atividades Acadêmicas
-        </button>
-      </li>
-    </ul>
+    <div>
+      <ul class="nav nav-tabs mt-4" id="menuTabs" role="tablist">
+        <li class="nav-item">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#alunos">
+            Alunos
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#atendimentos">
+            Atendimentos
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#atividades">
+            Atividades Acadêmicas
+          </button>
+        </li>
+      </ul>
 
-    <!-- CONTEÚDO DAS TABS -->
-    <div class="tab-content mt-3 ms-5">
+      <!-- CONTEÚDO DAS TABS -->
+      <div class="tab-content mt-3">
 
-      <!-- ALUNOS -->
-      <div class="tab-pane fade show active" id="alunos">
-        <h4>Alunos</h4>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Matrícula</th>
-              <th>Nome</th>
-              <th>Data Nascimento</th>
-              <th>Email</th>
-              <th>Contato</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-alunos">
-            <!-- preenchido via JS -->
-          </tbody>
-        </table>
-      </div>
+        <!-- ALUNOS -->
+        <div class="tab-pane fade show active" id="alunos">
+          <h4>Alunos</h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Matrícula</th>
+                <th>Nome</th>
+                <th>Data Nascimento</th>
+                <th>Email</th>
+                <th>Contato</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-alunos">
+              <!-- preenchido via JS -->
+            </tbody>
+          </table>
+        </div>
 
-      <!-- ATENDIMENTOS -->
-      <div class="tab-pane fade" id="atendimentos">
-        <h4>Atendimentos</h4>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Aluno</th>
-              <th>Descrição</th>
-              <th>Data</th>
-              <th>Situação</th>
-              <th>Responsável</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-atendimentos">
-          </tbody>
-        </table>
+        <!-- ATENDIMENTOS -->
+        <div class="tab-pane fade" id="atendimentos">
+          <h4>Atendimentos</h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Aluno</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Situação</th>
+                <th>Responsável</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-atendimentos">
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <!-- ATIVIDADES -->
@@ -194,4 +193,5 @@
   <script src="js/home.js"></script>
 
 </body>
+
 </html>
