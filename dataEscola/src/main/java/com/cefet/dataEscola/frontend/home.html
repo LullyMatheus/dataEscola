@@ -35,6 +35,42 @@
       </div>
     </div>
 
+    <div class="modal fade" id="modalAtendimento">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Novo Atendimento</h5>
+          </div>
+
+          <div class="modal-body">
+
+            <!-- ALUNO -->
+            <select id="alunoAtendimento" class="form-control mb-2">
+              <option value="">Selecione o aluno</option>
+            </select>
+
+            <input id="descricaoAtendimento" class="form-control mb-2" placeholder="Descrição">
+
+            <input id="dataAtendimento" type="date" class="form-control mb-2">
+
+            <select id="situacaoAtendimento" class="form-control mb-2">
+              <option value="REALIZADO">Realizado</option>
+              <option value="PENDENTE">Pendente</option>
+            </select>
+
+            <input id="responsavelAtendimento" class="form-control mb-2" placeholder="Responsável">
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-primary" onclick="salvarAtendimento()">
+              Salvar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
       <div class="container mt-4">
       <h2>Data Escola — Gestão de Informações Acadêmicas</h2>
       <div class="small">
@@ -61,9 +97,18 @@
           </div>
           <!--MT significa margin top e ms significa margin start-->
           <div class="mt-2 ms-1 btnNovoAluno">
-          <a href="#modalAluno" data-bs-toggle="modal" data-bs-target="#modalAluno">
-            Cadastrar Novo Aluno
-          </a>
+            <a href="#modalAluno" data-bs-toggle="modal" data-bs-target="#modalAluno">
+              Cadastrar Novo Aluno
+            </a>
+          </div>
+          <div class="mt-2 ms-1 btnNovoAtendimento">
+            <a href="#modalAtendimento"
+              data-bs-toggle="modal"
+              data-bs-target="#modalAtendimento"
+              onclick="carregarAlunosSelect()">
+              Cadastrar Novo Atendimento
+            </a>
+          </div>
         </div>
       </div>
 
