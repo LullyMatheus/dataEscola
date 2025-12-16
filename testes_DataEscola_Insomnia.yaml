@@ -2,14 +2,14 @@ type: collection.insomnia.rest/5.0
 schema_version: "5.1"
 name: ProjetoFinal
 meta:
-  id: wrk_df539324da2c43268f13e0ed8e6f710e
-  created: 1765651302112
-  modified: 1765651302112
+  id: wrk_a60d7efb0e1643138e17d2e8ca470881
+  created: 1765733314771
+  modified: 1765733314771
   description: ""
 collection:
   - name: Aluno
     meta:
-      id: fld_a3a81d0d31054b1cb6fbdc9996f181ad
+      id: fld_dbfa4917f5c54ba9b64a66b8c7b9f85b
       created: 1759706716472
       modified: 1765725612518
       sortKey: -1765725091372
@@ -18,7 +18,7 @@ collection:
       - url: http://localhost:8888/api/alunos
         name: Listar todos
         meta:
-          id: req_87d47fa16bb74cd39ff7f8f71f41292b
+          id: req_2b393d387b7c49f0b84acab5d12b142d
           created: 1759706716474
           modified: 1765720730026
           isPrivate: false
@@ -39,7 +39,7 @@ collection:
       - url: http://localhost:8888/api/alunos/1
         name: Buscar por ID
         meta:
-          id: req_87bd035b6be9484fbfcc06a7fad94060
+          id: req_c8e0b772f384457497b0b997d1c988fa
           created: 1759706716478
           modified: 1765391600351
           isPrivate: false
@@ -60,7 +60,7 @@ collection:
       - url: http://localhost:8888/api/alunos/2
         name: Remover por ID
         meta:
-          id: req_db383ee6f5ba45fd83c3beaf0050811c
+          id: req_cf4f29d6a36543cbb5bc01e50ec753bc
           created: 1759706716481
           modified: 1765393345993
           isPrivate: false
@@ -81,7 +81,7 @@ collection:
       - url: http://localhost:8888/api/alunos
         name: "Cadastrar "
         meta:
-          id: req_ce6a8837f5da42d7be6487976316898d
+          id: req_d57057980a094159accfefccdb4e1261
           created: 1759706716485
           modified: 1765392703654
           isPrivate: false
@@ -114,7 +114,7 @@ collection:
       - url: http://localhost:8888/api/alunos/2
         name: Atualizar
         meta:
-          id: req_dd2159c5765441d390939f17997c7ce7
+          id: req_c82b917618d640d180e039d90b7a59ab
           created: 1759706716488
           modified: 1765393222404
           isPrivate: false
@@ -145,9 +145,32 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: http://localhost:8888/api/alunos/nome/Lisa
+        name: Listar por nome
+        meta:
+          id: req_afc166ed6f6c45fa8ca441c37c894744
+          created: 1765847969750
+          modified: 1765848186912
+          isPrivate: false
+          description: ""
+          sortKey: -1758075575798.625
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
   - name: Usuario
     meta:
-      id: fld_b32a4e96251343768acfd3ad64837188
+      id: fld_62ea2fc7b21c41d0a3071542d0155ef2
       created: 1765668059604
       modified: 1765725614884
       sortKey: -1765725091322
@@ -156,7 +179,7 @@ collection:
       - url: http://localhost:8888/api/usuario
         name: Listar todos
         meta:
-          id: req_8fbf9cd2f45a48d5aee792f4be7f868d
+          id: req_5332476e444541f69488c291abd1a35f
           created: 1765668089122
           modified: 1765670958931
           isPrivate: false
@@ -179,7 +202,7 @@ collection:
       - url: http://localhost:8888/api/usuario/1
         name: Buscar por ID
         meta:
-          id: req_928a4de19cea485f81a105363c19dd11
+          id: req_ad347d7e0be145f183fabe7668ab790e
           created: 1765669146727
           modified: 1765671345893
           isPrivate: false
@@ -207,7 +230,7 @@ collection:
       - url: http://localhost:8888/api/usuario
         name: Cadastrar
         meta:
-          id: req_a9aafbc4e8454cff898d6d60a30dd9bc
+          id: req_97997c1ef72d4e378a819969e98f5ead
           created: 1765669183145
           modified: 1765670332249
           isPrivate: false
@@ -242,7 +265,7 @@ collection:
       - url: http://localhost:8888/api/usuario/4
         name: Deletar por ID
         meta:
-          id: req_42e1f4fe5f2140a78c7f429efe763b2e
+          id: req_463dab3d56ca4b579f058b5718ac7230
           created: 1765671291350
           modified: 1765671956120
           isPrivate: false
@@ -265,7 +288,7 @@ collection:
       - url: http://localhost:8888/api/usuario/5
         name: Atualizar
         meta:
-          id: req_3a547ffb039b48b286ced64425b0d21c
+          id: req_ddf2a33a359f43b6b92da1946c3d755a
           created: 1765671981741
           modified: 1765672149968
           isPrivate: false
@@ -300,7 +323,7 @@ collection:
           rebuildPath: true
   - name: Atendimento
     meta:
-      id: fld_1ad7c0cbcf4c480cb7e1d06ceaca4028
+      id: fld_d9da52b62a2849608c6dca1da887ef6e
       created: 1765713064021
       modified: 1765725616783
       sortKey: -1765725091297
@@ -309,7 +332,7 @@ collection:
       - url: http://localhost:8888/api/atendimento
         name: Listar Todos
         meta:
-          id: req_c770a0453a924611ad4ac3453167d18f
+          id: req_5e67fff360cd40f4bbcc3b990320ef3a
           created: 1765713069336
           modified: 1765713998991
           isPrivate: false
@@ -332,7 +355,7 @@ collection:
       - url: http://localhost:8888/api/atendimento/3
         name: Buscar por ID
         meta:
-          id: req_b38348c12b4b400e9e1fd307df3ad43b
+          id: req_098af5a9d7e94b208b0204b975f3dcb4
           created: 1765714002519
           modified: 1765721517535
           isPrivate: false
@@ -355,7 +378,7 @@ collection:
       - url: http://localhost:8888/api/atendimento
         name: Cadastrar
         meta:
-          id: req_6d448921a852422ca1dd7deceb3e31f0
+          id: req_32d9fab710a946789c62541ee6178594
           created: 1765714210226
           modified: 1765721010377
           isPrivate: false
@@ -391,7 +414,7 @@ collection:
       - url: http://localhost:8888/api/atendimento/9
         name: Atualizar
         meta:
-          id: req_d892b3ff314b4d2798392df4d715812a
+          id: req_a4c07fd1ac68486088fc1b9e5413b59b
           created: 1765721540434
           modified: 1765721621938
           isPrivate: false
@@ -428,7 +451,7 @@ collection:
       - url: http://localhost:8888/api/atendimento/9
         name: Deletar
         meta:
-          id: req_5a8281bd365446acac3e2b30fcfc9034
+          id: req_ddf996d01f0a4e848f2707af2a864eaf
           created: 1765721633092
           modified: 1765721672462
           isPrivate: false
@@ -450,7 +473,7 @@ collection:
           rebuildPath: true
   - name: Atividade Acadêmica
     meta:
-      id: fld_20ec09d1b87d49c189bfac251f9d1296
+      id: fld_d1ce6116a117493f86cf399ad58cd749
       created: 1765725091272
       modified: 1765725091272
       sortKey: -1765725091272
@@ -459,9 +482,9 @@ collection:
       - url: http://localhost:8888/api/atividades
         name: Listar todas
         meta:
-          id: req_7b23d162fd6243e7a3b6e978935b90fa
+          id: req_458dedc79d70420e895bb4cca27feffa
           created: 1765725094839
-          modified: 1765725158792
+          modified: 1765733328529
           isPrivate: false
           description: ""
           sortKey: -1765725097118
@@ -482,7 +505,7 @@ collection:
       - url: http://localhost:8888/api/atividades/1
         name: Buscar por ID
         meta:
-          id: req_ff3ebc80ed7d4382a43db55a7d15d971
+          id: req_4e728fc5d11146b29f588c20a6792bea
           created: 1765725161473
           modified: 1765725177911
           isPrivate: false
@@ -505,7 +528,7 @@ collection:
       - url: http://localhost:8888/api/atividades
         name: Cadastrar
         meta:
-          id: req_a9bcb2abb2984e44831b8f77e9e3e75a
+          id: req_33b81f6e368c4c8ebe918a55a8b92df1
           created: 1765725185811
           modified: 1765725424006
           isPrivate: false
@@ -539,7 +562,7 @@ collection:
       - url: http://localhost:8888/api/atividades/9
         name: Atualizar
         meta:
-          id: req_90008e58a3e04a7c99a892281ad8e4dd
+          id: req_86c5528e56ce4e6788cbf4b287267b03
           created: 1765725466248
           modified: 1765725532543
           isPrivate: false
@@ -574,7 +597,7 @@ collection:
       - url: http://localhost:8888/api/atividades/9
         name: Delete
         meta:
-          id: req_90639b3ee24b4a2697d7aad6fda9df74
+          id: req_0dfdcdf5cdcc4376bd95a253780da35b
           created: 1765725568104
           modified: 1765725582121
           isPrivate: false
@@ -594,20 +617,43 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: http://localhost:8888/api/atividades/por-aluno/1
+        name: Atividade Academica por aluno
+        meta:
+          id: req_5f1f1ea8da414eae8995f4ef697066e0
+          created: 1765851767007
+          modified: 1765852689312
+          isPrivate: false
+          description: ""
+          sortKey: -1765725097218
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
   - name: AlunoAtendimento
     meta:
-      id: fld_68f224acb68c41249631c47cca65a6e1
+      id: fld_ae34d735d51a484b82accb92a7c55404
       created: 1765810010042
       modified: 1765810021393
       sortKey: -1765725091309.5
       description: ""
     children:
-      - url: http://localhost:8888/api/atendimento/por-aluno?nome=Lisa Simpson
+      - url: http://localhost:8888/api/atendimento/por-aluno/1
         name: Atendimentos por aluno
         meta:
-          id: req_03a5311fd0f54a2ba9a99839a11864ab
+          id: req_fa5fc5ec5a644eb0bce76b42cacb1d5e
           created: 1765810029696
-          modified: 1765810476955
+          modified: 1765852806433
           isPrivate: false
           description: ""
           sortKey: -1765810031612
@@ -628,13 +674,13 @@ collection:
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_733d947a60894c67ae639ebc35fc682d
+    id: jar_d6a5666d0c2e4137b822311735664f99
     created: 1759706716463
     modified: 1759706716463
 environments:
   name: Base Environment
   meta:
-    id: env_4ec3e5e3535e453d81516f2ed48b3ec9
+    id: env_5ceeccaaf2cd46a9bfc2679abe04ba83
     created: 1759706716459
     modified: 1759706716459
     isPrivate: false
