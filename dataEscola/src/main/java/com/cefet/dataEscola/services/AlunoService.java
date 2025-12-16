@@ -68,6 +68,7 @@ public class AlunoService {
 	    return alunoRepository.existsById(id);
 	}	
 
+    //buscar por nome
     public List<AlunoResponseDTO> buscarPorNome(String nome) {
     return alunoRepository
         .findByNomeContainingIgnoreCase(nome)

@@ -62,6 +62,11 @@ public class AtividadeController {
             @PathVariable Long idAluno) {
         
         return ResponseEntity.ok(atividadeService.findByAlunoId(idAluno));
-    }  
-
+    }
+    
+    @GetMapping("/por-aluno/{alunoId}")
+    public List<AtividadeResponseDTO> listarPorAluno(
+        @PathVariable Long alunoId) {
+        return atividadeService.findByAlunoId(alunoId);
+    }   
 }

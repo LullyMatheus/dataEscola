@@ -16,7 +16,7 @@ public class AtendimentoResponseDTO {
 
     private LocalDate dataLembrete;
 
-    private SituacaoAtendimento situacao;
+    private String situacao;
 
     private String alunoNome;
 
@@ -35,7 +35,7 @@ public class AtendimentoResponseDTO {
         this.descricao = atendimento.getDescricao();
         this.dataAtendimento = atendimento.getDataAtendimento();
         this.dataLembrete = atendimento.getDataLembrete();
-        this.situacao = atendimento.getSituacao();
+        this.situacao = atendimento.getSituacao().name();
         this.alunoNome = atendimento.getAluno().getNome();
         this.usuarioNome = atendimento.getUsuario().getNome();
     }
@@ -68,11 +68,11 @@ public class AtendimentoResponseDTO {
         this.dataLembrete = dataLembrete;
     }
 
-    public SituacaoAtendimento getSituacao() {
+    public String getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(SituacaoAtendimento situacao) {
+    public void setSituacao(String situacao) {
         this.situacao = situacao;
     }
 

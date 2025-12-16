@@ -11,6 +11,10 @@ public interface AtendimentoRepository extends JpaRepository<Atendimento, Long> 
     List<Atendimento> findByAlunoNome(String nome);
     
     // Tambem possivel buscar por parte do nome (LIKE)
-    List<Atendimento> findByAlunoNomeContaining(String nome);
+    List<Atendimento> findByAlunoNomeContainingIgnoreCase(String nome);
+
+    //Busca por Id
+    List<Atendimento> findByAlunoId(Long alunoId);
+
     
 }

@@ -40,10 +40,12 @@ public class AtendimentoController {
         return ResponseEntity.ok(atendimentoResponseDTO);         
     } 
     
-    @GetMapping("/por-aluno")
-        public List<AtendimentoResponseDTO> listarPorAluno(@RequestParam String nome) {
-        return atendimentoService.buscarPorNomeDoAluno(nome);
-}
+    @GetMapping("/por-aluno/{alunoId}")
+    public List<AtendimentoResponseDTO> listarPorAluno(
+            @PathVariable Long alunoId) {
+        return atendimentoService.buscarPorAlunoId(alunoId);
+    }
+
 
     @PostMapping
     public ResponseEntity<AtendimentoResponseDTO> create(@Valid @RequestBody AtendimentoRequestDTO atendimentoRequestDTO){

@@ -19,8 +19,20 @@ public class AlunoResponseDTO {
     private String contatos;
 
     
-    public AlunoResponseDTO(Long long1, String string, String string2, LocalDate localDate, String string3, String string4){
-        //construtor vazio, eh util em alguns casos
+    public AlunoResponseDTO(
+            Long id,
+            String matricula,
+            String nome,
+            LocalDate dataNascimento,
+            String email,
+            String contatos
+    ) {
+        this.id = id;
+        this.matricula = matricula;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.email = email;
+        this.contatos = contatos;
     }
     
     //Construtor utilitario

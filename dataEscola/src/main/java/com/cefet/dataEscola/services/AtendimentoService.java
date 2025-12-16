@@ -46,8 +46,7 @@ public class AtendimentoService {
 
     public List<AtendimentoResponseDTO> buscarPorNomeDoAluno(String nome) {
         // Se eu quiser acrescentar uma regra de negocio, ela fica aqui
-        List<Atendimento> atendimentos = atendimentoRepository.findByAlunoNomeContaining(nome);
-        List<AtendimentoResponseDTO> dtos = atendimentos.stream()
+        List<Atendimento> atendimentos = atendimentoRepository.findByAlunoNomeContainingIgnoreCase(nome);        List<AtendimentoResponseDTO> dtos = atendimentos.stream()
         .map(AtendimentoResponseDTO::new)
         .collect(Collectors.toList());
         return dtos;
@@ -95,4 +94,13 @@ public class AtendimentoService {
 	public boolean existsById(Long id) {
 	    return atendimentoRepository.existsById(id);
 	}
+
+    public List<AtendimentoResponseDTO> buscarPorAlunoId(Long alunoId) {
+    return atendimentoRepository
+            .findByAlunoId(alunoId)
+            .stream()
+            .map(AtendimentoResponseDTO::new)
+            .toList();
+}
+
 }

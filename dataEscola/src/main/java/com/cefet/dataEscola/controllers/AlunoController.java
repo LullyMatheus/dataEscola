@@ -39,8 +39,14 @@ public class AlunoController {
     } 
 
     @GetMapping("/nome/{nome}")
-    public List<AlunoResponseDTO> buscarPorNome(@PathVariable String nome) {
-        return alunoService.buscarPorNome(nome);
+    public ResponseEntity<List<AlunoResponseDTO>> buscarPorNome(@PathVariable String nome) {
+        List<AlunoResponseDTO> alunos = alunoService.buscarPorNome(nome);
+
+        if (alunos.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(alunos);
     }
 
 

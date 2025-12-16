@@ -5,6 +5,7 @@ import com.cefet.dataEscola.entities.Atividade;
 public class AtividadeResponseDTO {
 
     private Long id;
+    private String alunoNome;
     private String descricao;
     private String observacao;
     private String status;  
@@ -15,6 +16,7 @@ public class AtividadeResponseDTO {
 
     public AtividadeResponseDTO(Atividade atividade) {
         this.id = atividade.getId();
+        this.alunoNome = atividade.getAluno().getNome();   
         this.descricao = atividade.getDescricao();
         this.observacao = atividade.getObservacao();
         this.status = atividade.getStatusAtividade().name();
@@ -23,6 +25,10 @@ public class AtividadeResponseDTO {
 
     public Long getId() {
         return id;
+    }
+
+    public String getAlunoNome() {
+        return alunoNome;
     }
 
     public String getDescricao() {
