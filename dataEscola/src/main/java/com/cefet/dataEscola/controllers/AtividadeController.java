@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.cefet.dataEscola.Enums.StatusAtividade;
 import com.cefet.dataEscola.dto.AtividadeRequestDTO;
 import com.cefet.dataEscola.dto.AtividadeResponseDTO;
 import com.cefet.dataEscola.services.AtividadeService;
@@ -69,4 +71,10 @@ public class AtividadeController {
         @PathVariable Long alunoId) {
         return atividadeService.findByAlunoId(alunoId);
     }   
+
+    @GetMapping("/status")
+    public StatusAtividade[] listarStatus() {
+        return StatusAtividade.values();
+    }
+
 }

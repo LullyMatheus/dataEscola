@@ -71,6 +71,38 @@
     </div>
   </div>
 
+  <div class="modal fade" id="modalAtividadeAcademica">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5>Nova Atividade</h5>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- ALUNO -->
+          <select id="alunoAtividade" class="form-control mb-2">
+            <option value="">Selecione o aluno</option>
+          </select>
+
+          <input id="descricaoAtividade" class="form-control mb-2" placeholder="Descrição">
+          
+          <input id="observacaoAtividade" class="form-control mb-2" placeholder="Observação">
+
+          <select id="statusAtividade" class="form-control mb-2">
+            <option value="">Selecione o status</option>
+          </select>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-primary" onclick="salvarAtividadeAcademica()">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="container mt-4">
     <h2>Data Escola — Gestão de Informações Acadêmicas</h2>
@@ -88,7 +120,7 @@
       </div>
       <div class="col-md-2">
         <button class="btn btn-secondary w-100" onclick="carregarAlunos()">
-          Limpar
+          Listar todos
         </button>
       </div>
       <!--MT significa margin top e ms significa margin start-->
@@ -103,10 +135,13 @@
           Cadastrar Novo Atendimento
         </a>
       </div>
+            <div class="mt-2 ms-1 btnNovoAluno small">
+        <a href="#modalAtividadeAcademica" data-bs-toggle="modal" data-bs-target="#modalAtividadeAcademica"
+          onclick="carregarAlunosSelect()">
+          Cadastrar Nova Atividade
+        </a>
+      </div>
     </div>
-
-
-
 
     <!-- NAV TABS -->
     <div>

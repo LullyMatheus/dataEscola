@@ -60,6 +60,7 @@ function carregarUsuariosSelect() {
         });
 }
 
+
 function carregarAlunosSelect() {
     fetch("http://localhost:8888/api/alunos")
         .then(res => res.json())
@@ -76,6 +77,42 @@ function carregarAlunosSelect() {
             });
         });
 }
+function carregarAlunosAtividade() {
+    fetch("http://localhost:8888/api/alunos")
+        .then(res => res.json())
+        .then(alunos => {
+            const select = document.getElementById("alunoAtividade");
+
+            select.innerHTML = '<option value="">Selecione o aluno</option>';
+
+            alunos.forEach(aluno => {
+                const option = document.createElement("option");
+                option.value = aluno.id;
+                option.textContent = aluno.nome;
+                select.appendChild(option);
+            });
+        })
+        .catch(err => console.error("Erro ao carregar alunos", err));
+}
+
+function carregarStatusAtividade() {
+    fetch("http://localhost:8888/api/atividades/status")
+        .then(res => res.json())
+        .then(statusList => {
+            const select = document.getElementById("statusAtividade");
+
+            select.innerHTML = '<option value="">Selecione o status</option>';
+
+            statusList.forEach(status => {
+                const option = document.createElement("option");
+                option.value = status;
+                option.textContent = status;
+                select.appendChild(option);
+            });
+        })
+        .catch(err => console.error("Erro ao carregar status", err));
+}
+
 
 function salvarAtendimento() {
     if (!alunoAtendimento.value) {
@@ -122,7 +159,60 @@ function salvarAtendimento() {
     .catch(err => alert(err.message));
 }
 
+document
+  .getElementById("modalAtividadeAcademica")
+  .addEventListener("show.bs.modal", () => {
+      carregarAlunosAtividade();
+      carregarStatusAtividade();
+  });
 
+function salvarAtividadeAcademica() {
+
+    if (!alunoAtividade.value) {
+        alert("Selecione um aluno");
+        return;
+    }
+
+    if (!descricaoAtividade.value) {
+        alert("Informe a descrição da atividade");
+        return;
+    }
+
+    if (!statusAtividade.value) {
+        alert("Selecione o status da atividade");
+        return;
+    }
+
+    const atividadeAcademica = {
+        descricao: descricaoAtividade.value,
+        observacao: observacaoAtividade.value || null,
+        status: statusAtividade.value,
+        idAluno: Number(alunoAtividade.value)
+    };
+
+    console.log("Enviando atividade acadêmica:", atividadeAcademica);
+
+    fetch("http://localhost:8888/api/atividades", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(atividadeAcademica)
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Erro ao salvar atividade acadêmica");
+        return res.json();
+    })
+    .then(() => {
+        alert("Atividade acadêmica cadastrada com sucesso!");
+
+        const modal = bootstrap.Modal.getInstance(
+            document.getElementById("modalAtividadeAcademica")
+        );
+
+        document.activeElement.blur();
+        modal.hide();
+    })
+    .catch(err => alert(err.message));
+}
 
 function buscarAluno() {
     const nome = document.getElementById("pesquisaNome").value.trim();
