@@ -48,6 +48,13 @@ public class AtendimentoController {
         return atendimentoService.buscarPorAlunoId(alunoId);
     }
 
+    //Novo Endpoint para filtrar pela semana atual
+    @GetMapping("/semana-atual")
+    public List<AtendimentoResponseDTO> listarDestaSemana() {
+        // Chama o método novo que criamos no Service
+        return atendimentoService.buscarAtendimentosDestaSemana();
+    }
+
 
     @PostMapping
     public ResponseEntity<AtendimentoResponseDTO> create(@Valid @RequestBody AtendimentoRequestDTO atendimentoRequestDTO){

@@ -1,5 +1,10 @@
 package com.cefet.dataEscola.services;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -55,6 +60,25 @@ public class AtendimentoService {
         .map(AtendimentoResponseDTO::new)
         .collect(Collectors.toList());
         return dtos;
+    }
+
+    public List<AtendimentoResponseDTO> buscarAtendimentosDestaSemana() {
+        // 1. Pega a data de hoje (data do servidor)
+        LocalDate hoje = LocalDate.now();
+
+        // 2. Calcula a Segunda-feira desta semana (Retrocede até achar a segunda)
+        LocalDate inicioSemana = hoje.with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+        
+        // 3. Calcula o Domingo desta semana (Avança até achar o domingo)
+        LocalDate fimSemana = hoje.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
+
+        // 4. Busca no banco usando o método do Repository
+        List<Atendimento> atendimentos = atendimentoRepository.findByDataAtendimentoBetween(inicioSemana, fimSemana);
+
+        // 5. Converte para DTO (igual ao findAll) para evitar problemas de loop no JSON
+        return atendimentos.stream()
+                .map(AtendimentoResponseDTO::new)
+                .toList();
     }
     
     //Salvar ou atualizar

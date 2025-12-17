@@ -1,7 +1,7 @@
 package com.cefet.dataEscola.repositories;
 
+import java.time.LocalDate;
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.cefet.dataEscola.entities.Atendimento;
 
@@ -15,6 +15,9 @@ public interface AtendimentoRepository extends JpaRepository<Atendimento, Long> 
 
     //Busca por Id
     List<Atendimento> findByAlunoId(Long alunoId);
+
+    // Busca onde dataAtendimento está entre dataInicio E dataFim
+    List<Atendimento> findByDataAtendimentoBetween(LocalDate inicio, LocalDate fim);
 
     
 }
