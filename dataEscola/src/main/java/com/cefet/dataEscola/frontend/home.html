@@ -12,17 +12,7 @@
 
 <body>
 
-  <div class="ms-5 mt-4">
-    <a href="index.html">
-    <button class="btn btn-outline-danger">Sair</button>
-    </a>
-    <div class="small mt-3">
-    <p>⭐NOVO!<a href="homeAtendimentos.html"> Acesse o painel de atendimentos</a></p>
-    </div>
-  </div>
-  
-
-  <div class="modal fade" id="modalAluno">
+    <div class="modal fade" id="modalAluno">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -111,21 +101,29 @@
 
 
   <div class="container mt-4">
+    <div class="mt-4">
+    <a href="index.html">
+    <button class="btn btn-outline-danger">Sair</button>
+    </a>
+    <div class="small mt-3">
+    <p>⭐NOVO!<a href="homeAtendimentos.html"> Acesse o painel de atendimentos</a></p>
+    </div>
+  </div>
     <h2>Data Escola — Gestão de Informações Acadêmicas</h2>
     <div class="small">
       <p>💡Dica: clique em listar todos para acessar facilmente todos os alunos cadastrados</p>
     </div>
     <div class="row mb-3">
       <div class="col-md-8">
-        <input type="text" id="pesquisaNome" class="form-control" placeholder="Digite o nome do aluno">
+        <input type="text" id="pesquisaNome" class="form-control mt-1" placeholder="Digite o nome do aluno">
       </div>
       <div class="col-md-2">
-        <button class="btn btn-success w-100" onclick="buscarAluno()">
+        <button class="btn btn-success w-100 mt-1" onclick="buscarAluno()">
           Buscar
         </button>
       </div>
       <div class="col-md-2">
-        <button class="btn btn-secondary w-100" onclick="carregarAlunos()">
+        <button class="btn btn-secondary w-100 mt-1" onclick="carregarAlunos()">
           Listar todos
         </button>
       </div>
