@@ -3,6 +3,25 @@ const API_BASE_URL = "http://localhost:8888/api";
 
 // Roda quando a página carrega
 document.addEventListener("DOMContentLoaded", () => {
+
+
+    function carregarAlunosSelect() {
+    fetch("http://localhost:8888/api/alunos")
+        .then(res => res.json())
+        .then(alunos => {
+            const select = document.getElementById("alunoAtendimento");
+            select.innerHTML = '<option value="">Selecione o aluno</option>';
+
+            alunos.forEach(aluno => {
+                select.innerHTML += `
+                    <option value="${aluno.id}">
+                        ${aluno.nome}
+                    </option>
+                `;
+            });
+        });
+}
+
     // Carrega as situações assim que abre a página
     carregarSituacoesAtendimento();
 
@@ -55,8 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
             carregarListaAtendimentos(`${API_BASE_URL}/atendimento/semana-atual`);
         });
     }
-
-    // A parte de cadastro
     
     // Detecta quando o modal está prestes a abrir para carregar os selects
     const modalAtendimento = document.getElementById("modalAtendimento");
@@ -96,8 +113,7 @@ function preencherTabelaAtendimentos(atendimentos) {
     tabela.innerHTML = "";
 
     atendimentos.forEach(atendimento => {
-        // Formatação simples da data (yyyy-mm-dd -> dd/mm/yyyy)
-        // Se a data vier com hora, use new Date(data).toLocaleDateString()
+
         let dataFormatada = atendimento.dataAtendimento; 
 
         tabela.innerHTML += `
@@ -113,47 +129,49 @@ function preencherTabelaAtendimentos(atendimentos) {
 }
 
 
-// 4. Salvar Atendimento
-// Nota: Essa função precisa ser global (window) se for chamada via onclick no HTML, 
-// mas idealmente deveria ser via addEventListener no botão "Salvar" do modal.
-// Como no seu HTML está onclick="salvarAtendimento()", mantemos assim:
-window.salvarAtendimento = function() {
-    const alunoSelect = document.getElementById("alunoAtendimento");
-    const responsavelSelect = document.getElementById("responsavelAtendimento");
-    const dataInput = document.getElementById("dataAtendimento");
-    const descricaoInput = document.getElementById("descricaoAtendimento");
-    const situacaoSelect = document.getElementById("situacaoAtendimento");
 
-    if (!alunoSelect.value) return alert("Selecione um aluno");
-    if (!responsavelSelect.value) return alert("Selecione um responsável");
-    if (!dataInput.value) return alert("Informe a data");
+
+function salvarAtendimento() {
+    if (!alunoAtendimento.value) {
+        alert("Selecione um aluno");
+        return;
+    }
+
+    if (!responsavelAtendimento.value) {
+        alert("Selecione um responsável");
+        return;
+    }
+
+    if (!dataAtendimento.value) {
+        alert("Informe a data do atendimento");
+        return;
+    }
 
     const atendimento = {
-        descricao: descricaoInput.value,
-        dataAtendimento: dataInput.value, // O backend espera yyyy-MM-dd (formato padrão do input date)
-        situacao: situacaoSelect.value,
-        idAluno: Number(alunoSelect.value),
-        idUsuario: Number(responsavelSelect.value),
+        descricao: descricaoAtendimento.value,
+        dataAtendimento: dataAtendimento.value,
+        situacao: situacaoAtendimento.value,
+        idAluno: Number(alunoAtendimento.value),
+        idUsuario: Number(responsavelAtendimento.value),
         dataLembrete: null
     };
 
-    fetch(`${API_BASE_URL}/atendimento`, {
+    console.log("Enviando:", atendimento);
+
+    fetch("http://localhost:8888/api/atendimento", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(atendimento)
     })
     .then(res => {
-        if (!res.ok) throw new Error("Erro ao salvar");
+        if (!res.ok) throw new Error("Erro ao salvar atendimento");
         return res.json();
     })
     .then(() => {
-        alert("Sucesso!");
-        // Fecha modal
-        const modalEl = document.getElementById("modalAtendimento");
-        const modal = bootstrap.Modal.getInstance(modalEl);
-        modal.hide();
-        // Atualiza a lista
-        carregarListaAtendimentos(`${API_BASE_URL}/atendimento`);
+        alert("Atendimento cadastrado com sucesso!");
+        bootstrap.Modal.getInstance(
+            document.getElementById("modalAtendimento")
+        ).hide();
     })
     .catch(err => alert(err.message));
 }
@@ -178,11 +196,10 @@ function carregarSituacoesAtendimento() {
 
 function carregarAlunosSelect() {
     // Busca todos os alunos para preencher o select do modal
-    fetch(`${API_BASE_URL}/aluno`) // Supondo que exista essa rota GET /aluno
+    fetch(`${API_BASE_URL}/aluno`)
         .then(res => res.json())
         .then(alunos => {
             const select = document.getElementById("alunoAtendimento");
-            // Mantém a primeira opção "Selecione..."
             select.innerHTML = '<option value="">Selecione o aluno</option>';
             alunos.forEach(aluno => {
                 select.innerHTML += `<option value="${aluno.id}">${aluno.nome}</option>`;
@@ -193,7 +210,7 @@ function carregarAlunosSelect() {
 
 function carregarResponsaveisSelect() {
     // Busca todos os usuários/servidores para preencher o select
-    fetch(`${API_BASE_URL}/usuario`) // Supondo que exista essa rota GET /usuario
+    fetch(`${API_BASE_URL}/usuario`)
         .then(res => res.json())
         .then(usuarios => {
             const select = document.getElementById("responsavelAtendimento");
