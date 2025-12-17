@@ -12,17 +12,6 @@
 
 <body>
 
-  <div class="ms-5 mt-4">
-    <a href="index.html">
-      <button class="btn btn-outline-danger">Sair</button>
-    </a>
-    <div class="small mt-1 ms-1">
-    <a href="home.html">Voltar ao Painel Geral</a>
-    </div>
-  </div>
-  
-  
-
   <div class="modal fade" id="modalAtendimento">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -58,10 +47,18 @@
     </div>
   </div>
 
-  
+
 
 
   <div class="container mt-2">
+    <div class="mt-4">
+      <a href="index.html">
+        <button class="btn btn-outline-danger">Sair</button>
+      </a>
+      <div class="small mt-1 ms-1">
+        <a href="home.html">Voltar ao Painel Geral</a>
+      </div>
+    </div>
     <h2>Data Escola — Gestão de Informações Acadêmicas</h2>
     <div class="small">
       <p>💡Dica: Use os dados dos atendimentos de forma estratégica</p>
@@ -90,28 +87,28 @@
 
     </div>
 
-      <!-- CONTEÚDO DAS TABS -->
-      <div class="tab-content mt-3">
+    <!-- CONTEÚDO DAS TABS -->
+    <div class="tab-content mt-3">
 
-        <!-- ATENDIMENTOS -->
-        <div id="atendimentos">
-          <h4>Atendimentos</h4>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Aluno</th>
-                <th>Descrição</th>
-                <th>Data</th>
-                <th>Situação</th>
-                <th>Responsável</th>
-              </tr>
-            </thead>
-            <tbody id="tabela-atendimentos">
-            </tbody>
-          </table>
-        </div>
+      <!-- ATENDIMENTOS -->
+      <div id="atendimentos">
+        <h4>Atendimentos</h4>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Descrição</th>
+              <th>Data</th>
+              <th>Situação</th>
+              <th>Responsável</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-atendimentos">
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
   </div>
 
   <script src="js/bootstrap.js"></script>
